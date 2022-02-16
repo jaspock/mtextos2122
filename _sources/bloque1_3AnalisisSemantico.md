@@ -22,6 +22,7 @@ Este capítulo se centra en el primer modelo.
 Según este modelo, por tanto, una palabra puede tener uno o más significados que además podemos especificar en un diccionario. Las palabras que tienen dos o más significados son palabras ambiguas. Se calcula que más del 60% de las palabras de un idioma son ambiguas: basta echar un vistazo a un diccionario para comprobarlo. En un contexto determinado, esa ambigüedad se reduce, de tal manera que un ser humano al interpretar el texto es capaz de determinar, a partir del conjunto de significado de una palabra, el sentido apropiado para ese contexto.
 
 > mouse1:  .... amousecontrolling a computer system in 1968.
+
 > mouse2:  .... a quiet animal like amouse
 
 (Ejemplo tomado de [Juravsky y Martin 2020, cap. 18, pág. 2](https://web.stanford.edu/~jurafsky/slp3/18.pdf))
