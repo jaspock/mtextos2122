@@ -63,6 +63,15 @@ Documentación:
 - [https://spacy.io/universe/project/spacy-conll](https://spacy.io/universe/project/spacy-conll)
 - [https://github.com/BramVanroy/spacy_conll](https://github.com/BramVanroy/spacy_conll)
 
+## Amplicación 2 - WordNet y NLTK
+
+Dado un fragmento del corpus lematizado, extraer el *synset* más frecuente.
+
+Documentación:
+- Acceso a Open Multilingual WordNet mediante NLTK: https://www.nltk.org/howto/wordnet.html
+- (Opcional) Acceso a NLTK desde SpaCy: https://spacy.io/universe/project/spacy-wordnet
+
+Truco: en WordNet, los sentidos de cada palabra están ordenados por frecuencia. Basta con extraer el primero para obtener el más frecuente.
 
 
 
