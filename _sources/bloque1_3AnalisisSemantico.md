@@ -2,6 +2,12 @@
 Análisis semántico
 ==================
 
+```{admonition} Nota
+:class: note
+Para preparar este tema, consulta los capítulos 18 y 19 de Juravsky y Martin (2020) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/).
+```
+
+
 ## La semántica. Tipos de significados.
 
 La semántica estudia significado de los textos. El propio concepto de significado es, sin embargo, bastante vago. En este tema se presenta modelos de representación y procesamiento del significado lingüístico según el estándar actual en PLN: por un lado el significado léxico y el significado oracional por otro.
@@ -237,13 +243,13 @@ También hay interés en sistemas multi- y cross-lingües:
 
 ## Otros tipos de análisis.
 
-http://nlpprogress.com/english/semantic_parsing.html
+[http://nlpprogress.com/english/semantic_parsing.html](http://nlpprogress.com/english/semantic_parsing.html)
 
 ## Bibliografía
 
 Fellbau, C. (ed) 1998. *WordNet: An Electronic Lexical Database*. Cambridge, MA: MIT Press.
 
-Juravsky y Martin (2020) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/) (Caps 12-14)
+Juravsky y Martin (2020) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/) (Caps 18-19)
 
 Miller, G. A. 1995. “WordNet: A Lexical Database for English”. *Communications of the ACM*, 38(11), 39-41.
 
