@@ -125,7 +125,7 @@ La desambiguación de sentido sigue siendo hoy una tarea abierta en PLN. Algunos
 
 ```{admonition} Actividad
 :class: note
-Antes de continuar, vamos a realizar la actividad 1 de la práctica 2.
+Para probar la anotación de sentidos con WordNet, puedes utilizar NLTK. Prueba a hacer la ampliación 2 de la práctica 1.
 ```
 
 ## Semántica oracional. Semántica eventiva y roles semánticos.
