@@ -21,9 +21,9 @@ Este capítulo se centra en el primer modelo.
 
 Según este modelo, por tanto, una palabra puede tener uno o más significados que además podemos especificar en un diccionario. Las palabras que tienen dos o más significados son palabras ambiguas. Se calcula que más del 60% de las palabras de un idioma son ambiguas: basta echar un vistazo a un diccionario para comprobarlo. En un contexto determinado, esa ambigüedad se reduce, de tal manera que un ser humano al interpretar el texto es capaz de determinar, a partir del conjunto de significado de una palabra, el sentido apropiado para ese contexto.
 
-> mouse1:  .... amousecontrolling a computer system in 1968.
+> mouse1:  .... a mouse controlling a computer system in 1968.
 
-> mouse2:  .... a quiet animal like amouse
+> mouse2:  .... a quiet animal like a mouse
 
 (Ejemplo tomado de [Juravsky y Martin 2020, cap. 18, pág. 2](https://web.stanford.edu/~jurafsky/slp3/18.pdf))
 
@@ -52,15 +52,15 @@ Los sistemas de WSD están formados por dos componentes fundamentales: un diccio
 [WordNet](https://wordnet.princeton.edu/) (Miller 1995,
 Fellbau 1998) es el principal recurso léxico (diccionario) utilizado hoy día en PLN. En su origen fue un diccionario para el inglés, pero luego fue ampliado a lenguas europeas (EuroWordNet) y otras familias lingüísticas (balkanet, arabic wordnet, etc.) y más tarde a todas las lenguas del mundo ([GlobalWordNet](http://globalwordnet.org/)) Ver también el [Open Multilingual Wordnet](http://compling.hss.ntu.edu.sg/omw/).
 
-WordNet en inglés se puede consultar desde la [página oficial](http://wordnetweb.princeton.edu/perl/webwn)).
+WordNet en inglés se puede consultar desde la [página oficial](http://wordnetweb.princeton.edu/perl/webwn).
 
 WordNet en otros idiomas se puede consultar desde el [proyecto Open Multilingual WordNet](http://compling.hss.ntu.edu.sg/omw/cgi-bin/wn-gridx.cgi?gridmode=grid).
 
 Las características principales de WordNet, que están presentes en el resto de proyectos, son:
 
 - WordNet es una red de sentidos. La unidad básica (cada nodo) es el sentido (y no la palabra como los diccionarios manuales).
-- Cada sentido se representa mediante el conjunto de palabras sinónimocas en un idioma, denominado "*synset*".
-- Cada *synset*, además del conjunto de sinónimos, disponde de información léxia como un ID único de sentido, ejemplos, glosas (definiciones), conceptos de dominio, etc. Excepto el ID, el resto de información es opcional.
+- Cada sentido se representa mediante el conjunto de palabras sinónimas en un idioma, denominado "*synset*".
+- Cada *synset*, además del conjunto de sinónimos, dispon de de información léxica como un ID único de sentido, ejemplos, glosas (definiciones), conceptos de dominio, etc. Excepto el ID, el resto de información es opcional.
 - La red se forma a partir de relaciones léxicas. La principal relación léxia es la sinonimia.
 - Entre nombres, las relaciones principales son hiperonimia ("is_a"), hiponimia (inversa de "is_a") y meronimia ("parte_de").
 - Para los adjetivos, la relaciones principales son la antonimia y "similar a".
@@ -102,13 +102,13 @@ En esta línea, el algoritmo UKB (Agirre y Soroa 2009, Padró et al. 2010) es un
 
 #### Estrategias basadas en aprendizaje supervisado
 
-Estas estrategias ("features-based algorithms") se caracterizan por aprender diferentes rasgos del contexto de las palabras y utilizarlos para clasificar usos ambiguos.
+Estas estrategias (*features-based algorithms*) se caracterizan por aprender diferentes rasgos del contexto de las palabras y utilizarlos para clasificar usos ambiguos.
 
 Por ejemplo, una estrategia óptima sería crear un clasificador basado en SVM con rasgos de aprendizaje como pudieran ser las categorías gramaticales de las tres palabras anteriores, n-gramas de las palabras alrededor de la palabra ambigua, o un vector contextual a partir de los vectores incrustados (*embedings*) de cada palabra del contexto (Juravki y Martin, cap. 18, pág. 12).
 
 Existen diferentes corpus anotados con sentidos desambiguados. El primero en ser desarrollado fue SemCor, con texto en inglés. Este corpus es el modelo a partir del cual se han desarrollado otros. El corpus se creó al mismo tiempo que WordNet y por las mismas personas. En SemCor, cada palabra tiene asignado el *synset* específico en WordNet. Y muchos sentidos de WordNet se han determinado a partir de los textos de SemCor. SemCor está disponible en diferentes páginas (como [esta](http://www.gabormelli.com/RKB/SemCor_Corpus) y [esta](http://web.eecs.umich.edu/~mihalcea/downloads.html#semcor)), así como en [Kaggle](https://www.kaggle.com/nltkdata/semcor-corpus) o [NLTK](https://www.nltk.org/_modules/nltk/corpus/reader/semcor.html).
 
-Corpus similares a SemCor para otros idiomas. Para español se creó el corpus Cast3LB, hoy enriquecido con más información y renombrado [Ancora Corpus](http://clic.ub.edu/corpus/es/ancora)).
+Corpus similares a SemCor para otros idiomas. Para español se creó el corpus Cast3LB, hoy enriquecido con más información y renombrado como [Ancora Corpus](http://clic.ub.edu/corpus/es/ancora).
 
 La línea de trabajo acutal es aplicar *word embeddings* a la tarea de WSD. Un recurso muy utilizado es [Nasari](http://lcl.uniroma1.it/nasari/), que incluye representaciones vectoriales de los *synsets* de WordNet y de la Wikipedia (ambos integrados en el recurso BabelNet).
 
@@ -245,8 +245,6 @@ También hay interés en sistemas multi- y cross-lingües:
 http://nlpprogress.com/english/semantic_parsing.html
 
 ## Bibliografía
-
-(Incompleta)
 
 Fellbau, C. (ed) 1998. *WordNet: An Electronic Lexical Database*. Cambridge, MA: MIT Press.
 
