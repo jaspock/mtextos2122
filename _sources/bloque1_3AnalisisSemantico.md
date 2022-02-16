@@ -128,13 +128,13 @@ La desambiguación de sentido sigue siendo hoy una tarea abierta en PLN. Algunos
 Para probar la anotación de sentidos con WordNet, puedes utilizar NLTK. Prueba a hacer la ampliación 2 de la práctica 1.
 ```
 
-## Semántica oracional. Semántica eventiva y roles semánticos.
+## Semántica oracional. Roles semánticos y semántica eventiva.
 
-Los sistemas de WSD se centran únicamente en determinar el significado de las palabras. Sin embargo, el significado global de un texto no solo depende del significado de las palabras que lo forma, sino también de las relaciones que se establecen entre ellas tanto en la oración como en la globalidad del texto (principio de composicionalidad).
+Los sistemas de WSD se centran únicamente en determinar el significado de las palabras. Sin embargo, el significado global de un texto no solo depende del significado de las palabras que lo forma, sino también de las relaciones que se establecen entre ellas tanto en la oración como en la globalidad del texto (__principio de composicionalidad__).
 
-Así, la semántica oracional se centra en estudiar el significado de la oración en su conjunto. Dentro del PLN hay diferentes aproximaciones a la semántica oracional, de las que destaca sobre todo el análisis de roles semánticos (Gildea y Jurafsky 2002).
+Así, la semántica oracional se centra en estudiar el significado de la oración en su conjunto. Dentro del PLN hay diferentes aproximaciones a la semántica oracional, de las que destaca sobre todo el análisis de __roles semánticos__ (Gildea y Jurafsky 2002).
 
-Los roles semánticos se enmarcan dentro de la semántica eventiva (o semántica de eventos). El objeto de esta aproximación semántica es determinar los eventos y estados expresados en un texto junto con sus participantes y las relaciones entre ellos.
+Los roles semánticos se enmarcan dentro de la __semántica eventiva__ (o semántica de eventos). El objeto de esta aproximación semántica es determinar los eventos y estados expresados en un texto junto con sus participantes y las relaciones entre ellos.
 
 Dada, por ejemplo, una oración, el evento suele venir expresado por el verbo y los participantes por sus argumentos. Los roles semánticos representan la relación semántica de esos argumentos con el sentido verbal dentro del marco eventivo (Levin et al. 2005).
 
@@ -154,10 +154,9 @@ Esta falta de definición ha propiciado el desarrollo de dos modelos de represen
 
 #### FrameNet
 
-FrameNet (Baker et al. 1998, Ruppenhofer et al. 2016) propone una representación de roles semánticos muy fina: indica roles específicos para unidades léxicas concretas. Estas unidades pueden ser verbos, nombres o adjetivos. Cada uno de sus sentidos se agrupa en un marco semántico, entendido
-como un marco estructural conceptual (*frame*) que describe una situación, un objeto o un evento concreto más sus participantes: los roles semánticos asociados a ese marco (*frame elements*).
+FrameNet (Baker et al. 1998, Ruppenhofer et al. 2016) propone una representación de roles semánticos muy fina: indica roles específicos para unidades léxicas concretas. Estas unidades pueden ser verbos, nombres o adjetivos. Cada uno de sus sentidos se agrupa en un marco semántico, entendido como un marco estructural conceptual (*frame*) que describe una situación, un objeto o un evento concreto más sus participantes: los roles semánticos asociados a ese marco (*frame elements*).
 
-Por ejemplo, la unidad léxica “comer” pertenece al marco semántico Ingestion. En este marco semántico se han definido hasta siete elementos, entre los que se encuentran:
+Por ejemplo, la unidad léxica “comer” pertenece al marco semántico *Ingestion*. En este marco semántico se han definido hasta siete elementos, entre los que se encuentran:
 
 - *ingestor* (“comensal”),
 - *ingestibles* (“comida” o “digeribles”),
@@ -169,14 +168,11 @@ Por ejemplo, la unidad léxica “comer” pertenece al marco semántico Ingesti
 
 En general, hay tres tipos de *frame elements*:
 
-1. *core*: aquellos que son específicos del evento y conceptualmente
-necesarios para que el marco tenga sentido completo;
+1. *core*: aquellos que son específicos del evento y conceptualmente necesarios para que el marco tenga sentido completo;
 2. *peripherical*: aquellos que aportan información importante para completar el marco semántico pero que no son centrales para que éste tenga sentido completo; y
-3. *extra-thematic*: aquellos que amplían el contexto semántico
-del marco.
+3. *extra-thematic*: aquellos que amplían el contexto semántico del marco.
 
-En el caso del marco Ingestion, los dos elementos *core* son *ingestor* e *ingestibles*; elementos periféricos son *instrument* o *source*, y el resto
-actuarían como extra-temáticos.
+En el caso del marco *Ingestion*, los dos elementos *core* son *ingestor* e *ingestibles*; elementos periféricos son *instrument* o *source*, y el resto actuarían como extra-temáticos.
 
 ```{admonition} Actividad
 :class: note
@@ -189,7 +185,7 @@ Consulta este y otros *frame elements* en la BD de FrameNET:
 
 #### PropBank
 
-La propuesta de PropBank (acrónimo de Proposition Bank (Palmer et al. 2005)) es justo la contraria. En vez de definir roles semánticos muy específicos según el evento, ProBank determina poco roles y muy generales, de tal manera que sean aplicable a cualquier evento. En vez de dar a los roles un nombre significativo, representa cada rol con un identificador. Así, de manera general se establece que puede haber hasta cinco roles semánticos asociados a un evento:
+La propuesta de PropBank (acrónimo de *Proposition Bank* (Palmer et al. 2005)) es justo la contraria. En vez de definir roles semánticos muy específicos según el evento, ProBank determina poco roles y muy generales, de tal manera que sean aplicable a cualquier evento. En vez de dar a los roles un nombre significativo, representa cada rol con un identificador. Así, de manera general se establece que puede haber hasta cinco roles semánticos asociados a un evento:
 
     Arg0 | Arg1 | Arg2 | Arg3 | Arg4
 
@@ -199,8 +195,7 @@ y además se establece un número indefinido de adjuntos:
 
 Cada rol se define por su relación con el verbo. Los dos argumentos que tienen una relación más estrecha con el sentido del verbo son _Arg0_ y _Arg1_. Para verbos transitivos, por ejemplo, el primero se suele identificar con el rol Agente y el segundo con el rol Tema/Paciente, pero esta relación no siempre se cumple.
 
-Lo importante es que la alternancia de diátesis no afecte a los roles. Así, independientemente de que la estructura verbal se exprese en activa o en
-pasiva, los roles Arg0 y Arg1 serán los mismos:
+Lo importante es que la alternancia de diátesis no afecte a los roles. Así, independientemente de que la estructura verbal se exprese en activa o en pasiva, los roles Arg0 y Arg1 serán los mismos:
 
     [Arg0 La policía militar] arrestó [Arg1 a tres personas]
     [Arg1 Tres personas] fueron arrestadas [Arg0 por la policía militar]
@@ -224,7 +219,7 @@ Consulta los roles de PropBank en su BD unificada (*Unified Verb Index*):
 
 Los sistema de análisis de roles semánticos (*semantic role labeling*) toman como entrada un corpus anotado con categorías gramaticales y (en algunos casos, pero no siempre) con relaciones sintácticas. La salida es la especificación de qué elemento expresa el evento, qué palabras se agrupan en cada argumento y el tipo de argumento.
 
-Los principales algoritmos de *semantic roles labeling* suelen estar basados en técnicas de aprendizaje supervisado. A partir de corpus anotados con roles (como el propio corpus [PropBank](https://propbank.github.io/)), se establecen una serie de rasgos de aprendizaje que se utilizan luego para clasificar por tipos de roles semánticos.
+Los principales algoritmos de *semantic roles labeling* suelen estar basados en __técnicas de aprendizaje supervisado__. A partir de corpus anotados con roles (como el propio corpus [PropBank](https://propbank.github.io/)), se establecen una serie de rasgos de aprendizaje que se utilizan luego para clasificar por tipos de roles semánticos.
 
 El algoritmo estándar de SRL es el de Gildea y Jurafsky (2002). Este sistema primero aprende de un corpus anotado qué elementos son los roles semánticos y de qué tipo son, junto a una serie de rasgos lingüísticos. Entre los
 rasgos utilizados está el verbo que rige la estructura argumental, los tipos de sintagma de los argumentos, la categoría gramatical de las palabras de cada argumento, los lemas de las palabras, etc. Es decir, tanto información categorial como sintáctica. Durante el proceso de análisis de un nuevo corpus, el algoritmo tratará de determinar los roles semánticos de una oración a
