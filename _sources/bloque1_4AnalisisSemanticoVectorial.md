@@ -252,7 +252,9 @@ Para crear espacios vectoriales y calcular similitudes:
 
 ## Apéndice. Estudio de caso.
 
-Extracción de *topics* con Topic Modeling.
+Extracción de *topics* con *Topic Modeling*.
+
+[Acceso a la presentación](https://docs.google.com/presentation/d/e/2PACX-1vRhjksmebwfZ8CfMNCqp7ucPr0i--fPNCa6dqb0NH3jiMOQV1lSvnlnF7qptbtqEsA5O4IzpcJa-F9r/pub?start=false&loop=false&delayms=60000)
 
 ## Bibliografía
 
