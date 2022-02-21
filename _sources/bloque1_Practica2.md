@@ -1,42 +1,51 @@
-﻿
+﻿Práctica 1b : _Topic modeling_.
+==============================
 
-Fundamentos de PLN. Práctica 2. Análisis semántico.
-====================================================
-
-## Actividad 1 - Simultación de un sistema de WSD
-
-Para comprender el proceso de WSD, en esta práctica vamos a simular que eres un sistema de WSD.
-
-Dado el [este corpus](https://www.dlsi.ua.es/~borja/a2.txt) y WordNet en español (accesible desde el [Multilingual Central Repository](https://adimen.si.ehu.es/cgi-bin/wei/public/wei.consult.perl)), ve seleccionando una a una cada palabra del texto (solo nombres, verbos o adjetivos), busca sus *synsets* en WN y elige el más apropiado para el contexto donde aparece la palabra.
-
-Esta actividad se realizará en grupo durante la hora de clase.
+Borja Navarro Colorado
 
 
-## Actividad 2. Análisis semántico de un corpus con Freeling.
+## Objeto
 
-El objetivo de esta práctica es realizar análisis semántico con [Freeling](http://nlp.lsi.upc.edu/freeling/) y enteder la salida que ofrece.
+El objetivo de este ejercicio es practicar la conversión de un corpus en una representación semántica vectorial. Para ello se utilizará el modelo LDA _topic modeling_. Este modelo extrae temas recurrentes de un corpus a partir de su representación vectorial de las palabras. La herramienta para realizar la práctica es [Gensim](https://radimrehurek.com/gensim/index.html), y el corpus el corpus de noticias LexEsp. De nuevo se utilizará COLAB para facilitar el trabajo.
 
-Por pasos:
 
-1. Instala Freeling. Ver aquí:
+## Proceso y entrega
 
-[https://freeling-user-manual.readthedocs.io/en/latest/installation/installation-packages/](https://freeling-user-manual.readthedocs.io/en/latest/installation/installation-packages/)
+La tarea es encontrar los temas comunes en un corpus de noticias. Para ello:
 
-2. Con la opción _analyze_, analiza el corpus anterior con sentidos (WSD) y roles semánticos. Crear un script SH o BASH para automatizar la consulta. Ver aquí:
+1. Cargar el corpus LexEsp en COLAB (fichero comprimido en la UA-Nube)
+2. Pre-procesar el corpus. Como mínimo debe ser tokenizado. Además se puede lematizar y/o filtrar "stopwords" o seleccionar categorías gramaticales. Para ello se puede utilizar [SpaCy](https://spacy.io/) como en la práctica anterior, u otras herramientas de PLN como [NLTK](https://www.nltk.org/).
+3. Crear el modelo LDA con [Gensim](https://radimrehurek.com/gensim/index.html).
+4. Visualizar los _topics_ del corpus con [pyLDAvis](https://pyldavis.readthedocs.io/en/latest/index.html)
 
-[https://freeling-user-manual.readthedocs.io/en/v4.2/analyzer/#using-analyzer-program-to-process-corpora](https://freeling-user-manual.readthedocs.io/en/v4.2/analyzer/#using-analyzer-program-to-process-corpora)
+Una vez creado todo, analiza los _topics_ resultantes y cambia la configuración del experimento hasta hallar la lista de _topics_ más clara. Parámetros que se pueden modificar:
+- Preproceso del corpus: ¿tokens o lemas?, ¿con o sin filtro _stopwords_?, ¿todas las categorías gramaticales o solo unas determinadas (por ejemplo, solo nombres)?, etc.
+- Cantidad de _topics_.
+- Cantidad de iteraciones.
+- Otros parámetros...
 
-3. Analiza la salida y crea un script (en python, por ejemplo) que incorpore esa información dos fichero ordenados por columnas, uno con la información semántica léxica
+Una vez conseguida la configuración óptima, entregad enlace al cuaderno COLAB (modo lectura) mediante la opción de entrega de prácticas de UA-CLOUD.
 
-    token | lema | sentido
+## Documentación.
 
-y otro con la información de roles semánticos:
+Para realizar la práctica, sigue este tutorial (oficial) de LDA con Gensim:
+    - https://radimrehurek.com/gensim/auto_examples/tutorials/run_lda.html#sphx-glr-auto-examples-tutorials-run-lda-py
 
-    evento | role A0 | role A1 | role A2 | role A3
- | role A4 | ArgM | ...
+Otras páginas útiles:
+    - Introducción a Gensim: 
+        + https://radimrehurek.com/gensim/auto_examples/core/run_core_concepts.html#sphx-glr-auto-examples-core-run-core-concepts-py
+        + Otros modelos en Gensim: https://radimrehurek.com/gensim/auto_examples/index.html#documentation
+    - Sobre _Topic modeling_:
+        + http://www.cs.columbia.edu/~blei/papers/Blei2011.pdf
+        + http://blog.echen.me/2011/08/22/introduction-to-latent-dirichlet-allocation/
+    - Visualizador pyLDSvis:
+        + https://pyldavis.readthedocs.io/en/latest/index.html
+        + Ejemplo de uso y conexión con Gensim: https://nbviewer.org/github/bmabey/pyLDAvis/blob/master/notebooks/pyLDAvis_overview.ipynb#topic=0&lambda=1&term=
 
-## Para saber más...
+## Otras herramientas
 
-- [http://nlp.lsi.upc.edu/freeling/](http://nlp.lsi.upc.edu/freeling/)
-- [https://freeling-user-manual.readthedocs.io/en/v4.2/](https://freeling-user-manual.readthedocs.io/en/v4.2/)
+Para realizar Topic Modeling, existen otras herramientas como:
+
+- [MALLET](https://mimno.github.io/Mallet/topics.html)
+- [Topic Modeling Tool](https://senderle.github.io/topic-modeling-tool/documentation/2017/01/06/quickstart.html), (que en realidad es solo una interfaz gráfica para MALLET).
 

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fundamentos de PLN. Práctica 2. Análisis semántico. &#8212; Minería de Textos</title>
+    <title>Práctica 1b : Topic modeling. &#8212; Minería de Textos</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -52,6 +52,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Técnicas para la minería de textos" href="bloque2.html" />
+    <link rel="prev" title="Análisis semántico vectorial" href="bloque1_4AnalisisSemanticoVectorial.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -100,17 +102,17 @@
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="bloque1.html">
    Introducción a la minería de textos
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="bloque1_1Introduccion.html">
      Minería de textos y procesamiento del lenguaje natural.
@@ -134,6 +136,15 @@
    <li class="toctree-l2">
     <a class="reference internal" href="bloque1_4AnalisisSemanticoVectorial.html">
      Análisis semántico vectorial
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Práctica 1b :
+     <em>
+      Topic modeling
+     </em>
+     .
     </a>
    </li>
   </ul>
@@ -254,18 +265,23 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#actividad-1-simultacion-de-un-sistema-de-wsd">
-   Actividad 1 - Simultación de un sistema de WSD
+  <a class="reference internal nav-link" href="#objeto">
+   Objeto
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#actividad-2-analisis-semantico-de-un-corpus-con-freeling">
-   Actividad 2. Análisis semántico de un corpus con Freeling.
+  <a class="reference internal nav-link" href="#proceso-y-entrega">
+   Proceso y entrega
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#para-saber-mas">
-   Para saber más…
+  <a class="reference internal nav-link" href="#documentacion">
+   Documentación.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#otras-herramientas">
+   Otras herramientas
   </a>
  </li>
 </ul>
@@ -278,7 +294,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Fundamentos de PLN. Práctica 2. Análisis semántico.</h1>
+                <h1>Práctica 1b : Topic modeling.</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -289,18 +305,23 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#actividad-1-simultacion-de-un-sistema-de-wsd">
-   Actividad 1 - Simultación de un sistema de WSD
+  <a class="reference internal nav-link" href="#objeto">
+   Objeto
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#actividad-2-analisis-semantico-de-un-corpus-con-freeling">
-   Actividad 2. Análisis semántico de un corpus con Freeling.
+  <a class="reference internal nav-link" href="#proceso-y-entrega">
+   Proceso y entrega
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#para-saber-mas">
-   Para saber más…
+  <a class="reference internal nav-link" href="#documentacion">
+   Documentación.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#otras-herramientas">
+   Otras herramientas
   </a>
  </li>
 </ul>
@@ -312,42 +333,52 @@
             
               <div>
                 
-  <div class="section" id="fundamentos-de-pln-practica-2-analisis-semantico">
-<h1>Fundamentos de PLN. Práctica 2. Análisis semántico.<a class="headerlink" href="#fundamentos-de-pln-practica-2-analisis-semantico" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="actividad-1-simultacion-de-un-sistema-de-wsd">
-<h2>Actividad 1 - Simultación de un sistema de WSD<a class="headerlink" href="#actividad-1-simultacion-de-un-sistema-de-wsd" title="Permalink to this headline">¶</a></h2>
-<p>Para comprender el proceso de WSD, en esta práctica vamos a simular que eres un sistema de WSD.</p>
-<p>Dado el <a class="reference external" href="https://www.dlsi.ua.es/~borja/a2.txt">este corpus</a> y WordNet en español (accesible desde el <a class="reference external" href="https://adimen.si.ehu.es/cgi-bin/wei/public/wei.consult.perl">Multilingual Central Repository</a>), ve seleccionando una a una cada palabra del texto (solo nombres, verbos o adjetivos), busca sus <em>synsets</em> en WN y elige el más apropiado para el contexto donde aparece la palabra.</p>
-<p>Esta actividad se realizará en grupo durante la hora de clase.</p>
+  <div class="section" id="practica-1b-topic-modeling">
+<h1>Práctica 1b : <em>Topic modeling</em>.<a class="headerlink" href="#practica-1b-topic-modeling" title="Permalink to this headline">¶</a></h1>
+<p>Borja Navarro Colorado</p>
+<div class="section" id="objeto">
+<h2>Objeto<a class="headerlink" href="#objeto" title="Permalink to this headline">¶</a></h2>
+<p>El objetivo de este ejercicio es practicar la conversión de un corpus en una representación semántica vectorial. Para ello se utilizará el modelo LDA <em>topic modeling</em>. Este modelo extrae temas recurrentes de un corpus a partir de su representación vectorial de las palabras. La herramienta para realizar la práctica es <a class="reference external" href="https://radimrehurek.com/gensim/index.html">Gensim</a>, y el corpus el corpus de noticias LexEsp. De nuevo se utilizará COLAB para facilitar el trabajo.</p>
 </div>
-<div class="section" id="actividad-2-analisis-semantico-de-un-corpus-con-freeling">
-<h2>Actividad 2. Análisis semántico de un corpus con Freeling.<a class="headerlink" href="#actividad-2-analisis-semantico-de-un-corpus-con-freeling" title="Permalink to this headline">¶</a></h2>
-<p>El objetivo de esta práctica es realizar análisis semántico con <a class="reference external" href="http://nlp.lsi.upc.edu/freeling/">Freeling</a> y enteder la salida que ofrece.</p>
-<p>Por pasos:</p>
+<div class="section" id="proceso-y-entrega">
+<h2>Proceso y entrega<a class="headerlink" href="#proceso-y-entrega" title="Permalink to this headline">¶</a></h2>
+<p>La tarea es encontrar los temas comunes en un corpus de noticias. Para ello:</p>
 <ol class="simple">
-<li><p>Instala Freeling. Ver aquí:</p></li>
+<li><p>Cargar el corpus LexEsp en COLAB (fichero comprimido en la UA-Nube)</p></li>
+<li><p>Pre-procesar el corpus. Como mínimo debe ser tokenizado. Además se puede lematizar y/o filtrar “stopwords” o seleccionar categorías gramaticales. Para ello se puede utilizar <a class="reference external" href="https://spacy.io/">SpaCy</a> como en la práctica anterior, u otras herramientas de PLN como <a class="reference external" href="https://www.nltk.org/">NLTK</a>.</p></li>
+<li><p>Crear el modelo LDA con <a class="reference external" href="https://radimrehurek.com/gensim/index.html">Gensim</a>.</p></li>
+<li><p>Visualizar los <em>topics</em> del corpus con <a class="reference external" href="https://pyldavis.readthedocs.io/en/latest/index.html">pyLDAvis</a></p></li>
 </ol>
-<p><a class="reference external" href="https://freeling-user-manual.readthedocs.io/en/latest/installation/installation-packages/">https://freeling-user-manual.readthedocs.io/en/latest/installation/installation-packages/</a></p>
-<ol class="simple">
-<li><p>Con la opción <em>analyze</em>, analiza el corpus anterior con sentidos (WSD) y roles semánticos. Crear un script SH o BASH para automatizar la consulta. Ver aquí:</p></li>
-</ol>
-<p><a class="reference external" href="https://freeling-user-manual.readthedocs.io/en/v4.2/analyzer/#using-analyzer-program-to-process-corpora">https://freeling-user-manual.readthedocs.io/en/v4.2/analyzer/#using-analyzer-program-to-process-corpora</a></p>
-<ol>
-<li><p>Analiza la salida y crea un script (en python, por ejemplo) que incorpore esa información dos fichero ordenados por columnas, uno con la información semántica léxica</p>
-<p>token | lema | sentido</p>
-</li>
-</ol>
-<p>y otro con la información de roles semánticos:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>evento | role A0 | role A1 | role A2 | role A3
-</pre></div>
-</div>
-<p>| role A4 | ArgM | …</p>
-</div>
-<div class="section" id="para-saber-mas">
-<h2>Para saber más…<a class="headerlink" href="#para-saber-mas" title="Permalink to this headline">¶</a></h2>
+<p>Una vez creado todo, analiza los <em>topics</em> resultantes y cambia la configuración del experimento hasta hallar la lista de <em>topics</em> más clara. Parámetros que se pueden modificar:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="http://nlp.lsi.upc.edu/freeling/">http://nlp.lsi.upc.edu/freeling/</a></p></li>
-<li><p><a class="reference external" href="https://freeling-user-manual.readthedocs.io/en/v4.2/">https://freeling-user-manual.readthedocs.io/en/v4.2/</a></p></li>
+<li><p>Preproceso del corpus: ¿tokens o lemas?, ¿con o sin filtro <em>stopwords</em>?, ¿todas las categorías gramaticales o solo unas determinadas (por ejemplo, solo nombres)?, etc.</p></li>
+<li><p>Cantidad de <em>topics</em>.</p></li>
+<li><p>Cantidad de iteraciones.</p></li>
+<li><p>Otros parámetros…</p></li>
+</ul>
+<p>Una vez conseguida la configuración óptima, entregad enlace al cuaderno COLAB (modo lectura) mediante la opción de entrega de prácticas de UA-CLOUD.</p>
+</div>
+<div class="section" id="documentacion">
+<h2>Documentación.<a class="headerlink" href="#documentacion" title="Permalink to this headline">¶</a></h2>
+<p>Para realizar la práctica, sigue este tutorial (oficial) de LDA con Gensim:
+- https://radimrehurek.com/gensim/auto_examples/tutorials/run_lda.html#sphx-glr-auto-examples-tutorials-run-lda-py</p>
+<p>Otras páginas útiles:
+- Introducción a Gensim:
++ https://radimrehurek.com/gensim/auto_examples/core/run_core_concepts.html#sphx-glr-auto-examples-core-run-core-concepts-py
++ Otros modelos en Gensim: https://radimrehurek.com/gensim/auto_examples/index.html#documentation
+- Sobre <em>Topic modeling</em>:
++ http://www.cs.columbia.edu/~blei/papers/Blei2011.pdf
++ http://blog.echen.me/2011/08/22/introduction-to-latent-dirichlet-allocation/
+- Visualizador pyLDSvis:
++ https://pyldavis.readthedocs.io/en/latest/index.html
++ Ejemplo de uso y conexión con Gensim: https://nbviewer.org/github/bmabey/pyLDAvis/blob/master/notebooks/pyLDAvis_overview.ipynb#topic=0&amp;lambda=1&amp;term=</p>
+</div>
+<div class="section" id="otras-herramientas">
+<h2>Otras herramientas<a class="headerlink" href="#otras-herramientas" title="Permalink to this headline">¶</a></h2>
+<p>Para realizar Topic Modeling, existen otras herramientas como:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://mimno.github.io/Mallet/topics.html">MALLET</a></p></li>
+<li><p><a class="reference external" href="https://senderle.github.io/topic-modeling-tool/documentation/2017/01/06/quickstart.html">Topic Modeling Tool</a>, (que en realidad es solo una interfaz gráfica para MALLET).</p></li>
 </ul>
 </div>
 </div>
@@ -376,7 +407,21 @@
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="bloque1_4AnalisisSemanticoVectorial.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Análisis semántico vectorial</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="bloque2.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Técnicas para la minería de textos</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>
