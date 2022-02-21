@@ -32,18 +32,29 @@ Con la configuración óptima, entrega el enlace del cuaderno COLAB (modo lectur
 ## Documentación.
 
 Para realizar la práctica, sigue este tutorial (oficial) de LDA con Gensim:
+
     - [https://radimrehurek.com/gensim/auto_examples/tutorials/run_lda.html#sphx-glr-auto-examples-tutorials-run-lda-py](https://radimrehurek.com/gensim/auto_examples/tutorials/run_lda.html#sphx-glr-auto-examples-tutorials-run-lda-py)
 
 Otras páginas útiles:
+
     - Introducción a Gensim: 
+
         + [https://radimrehurek.com/gensim/auto_examples/core/run_core_concepts.html#sphx-glr-auto-examples-core-run-core-concepts-py](https://radimrehurek.com/gensim/auto_examples/core/run_core_concepts.html#sphx-glr-auto-examples-core-run-core-concepts-py)
+
         + Otros modelos en Gensim: [https://radimrehurek.com/gensim/auto_examples/index.html#documentation](https://radimrehurek.com/gensim/auto_examples/index.html#documentation)
+
     - Sobre _Topic modeling_:
+
         + [http://www.cs.columbia.edu/~blei/papers/Blei2012.pdf](http://www.cs.columbia.edu/~blei/papers/Blei2012.pdf)
+
         + [http://www.cs.columbia.edu/~blei/papers/Blei2011.pdf](http://www.cs.columbia.edu/~blei/papers/Blei2011.pdf)
+
         + [http://blog.echen.me/2011/08/22/introduction-to-latent-dirichlet-allocation/](http://blog.echen.me/2011/08/22/introduction-to-latent-dirichlet-allocation/)
+
     - Visualizador pyLDSvis:
+
         + [https://pyldavis.readthedocs.io/en/latest/index.html](https://pyldavis.readthedocs.io/en/latest/index.html)
+
         + Ejemplo de uso y conexión con Gensim: [https://nbviewer.org/github/bmabey/pyLDAvis/blob/master/notebooks/pyLDAvis_overview.ipynb#topic=0&lambda=1&term=](https://nbviewer.org/github/bmabey/pyLDAvis/blob/master/notebooks/pyLDAvis_overview.ipynb#topic=0&lambda=1&term=)
 
 
