@@ -22,25 +22,30 @@ Una vez creado todo, analiza los _topics_ resultantes y cambia la configuración
 - Preproceso del corpus: ¿tokens o lemas?, ¿con o sin filtro _stopwords_?, ¿todas las categorías gramaticales o solo unas determinadas (por ejemplo, solo nombres)?, etc.
 - Cantidad de _topics_.
 - Cantidad de iteraciones.
+- Los hiperparámetros _alpha_ y _beta_ (_eta_ en gensim) no hace falta modificarlos. Si quieres profundizar en este aspectos, ver: 
+    - [https://www.thoughtvector.io/blog/lda-alpha-and-beta-parameters-the-intuition/](https://www.thoughtvector.io/blog/lda-alpha-and-beta-parameters-the-intuition/)
+    - [https://datascience.stackexchange.com/questions/199/what-does-the-alpha-and-beta-hyperparameters-contribute-to-in-latent-dirichlet-a](https://datascience.stackexchange.com/questions/199/what-does-the-alpha-and-beta-hyperparameters-contribute-to-in-latent-dirichlet-a)
 - Otros parámetros...
 
-Una vez conseguida la configuración óptima, entregad enlace al cuaderno COLAB (modo lectura) mediante la opción de entrega de prácticas de UA-CLOUD.
+Con la configuración óptima, entrega el enlace del cuaderno COLAB (modo lectura) mediante la opción de entrega de prácticas de UA-CLOUD.
 
 ## Documentación.
 
 Para realizar la práctica, sigue este tutorial (oficial) de LDA con Gensim:
-    - https://radimrehurek.com/gensim/auto_examples/tutorials/run_lda.html#sphx-glr-auto-examples-tutorials-run-lda-py
+    - [https://radimrehurek.com/gensim/auto_examples/tutorials/run_lda.html#sphx-glr-auto-examples-tutorials-run-lda-py](https://radimrehurek.com/gensim/auto_examples/tutorials/run_lda.html#sphx-glr-auto-examples-tutorials-run-lda-py)
 
 Otras páginas útiles:
     - Introducción a Gensim: 
-        + https://radimrehurek.com/gensim/auto_examples/core/run_core_concepts.html#sphx-glr-auto-examples-core-run-core-concepts-py
-        + Otros modelos en Gensim: https://radimrehurek.com/gensim/auto_examples/index.html#documentation
+        + [https://radimrehurek.com/gensim/auto_examples/core/run_core_concepts.html#sphx-glr-auto-examples-core-run-core-concepts-py](https://radimrehurek.com/gensim/auto_examples/core/run_core_concepts.html#sphx-glr-auto-examples-core-run-core-concepts-py)
+        + Otros modelos en Gensim: [https://radimrehurek.com/gensim/auto_examples/index.html#documentation](https://radimrehurek.com/gensim/auto_examples/index.html#documentation)
     - Sobre _Topic modeling_:
-        + http://www.cs.columbia.edu/~blei/papers/Blei2011.pdf
-        + http://blog.echen.me/2011/08/22/introduction-to-latent-dirichlet-allocation/
+        + [http://www.cs.columbia.edu/~blei/papers/Blei2012.pdf](http://www.cs.columbia.edu/~blei/papers/Blei2012.pdf)
+        + [http://www.cs.columbia.edu/~blei/papers/Blei2011.pdf](http://www.cs.columbia.edu/~blei/papers/Blei2011.pdf)
+        + [http://blog.echen.me/2011/08/22/introduction-to-latent-dirichlet-allocation/](http://blog.echen.me/2011/08/22/introduction-to-latent-dirichlet-allocation/)
     - Visualizador pyLDSvis:
-        + https://pyldavis.readthedocs.io/en/latest/index.html
-        + Ejemplo de uso y conexión con Gensim: https://nbviewer.org/github/bmabey/pyLDAvis/blob/master/notebooks/pyLDAvis_overview.ipynb#topic=0&lambda=1&term=
+        + [https://pyldavis.readthedocs.io/en/latest/index.html](https://pyldavis.readthedocs.io/en/latest/index.html)
+        + Ejemplo de uso y conexión con Gensim: [https://nbviewer.org/github/bmabey/pyLDAvis/blob/master/notebooks/pyLDAvis_overview.ipynb#topic=0&lambda=1&term=](https://nbviewer.org/github/bmabey/pyLDAvis/blob/master/notebooks/pyLDAvis_overview.ipynb#topic=0&lambda=1&term=)
+
 
 ## Otras herramientas
 
