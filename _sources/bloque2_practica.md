@@ -4,7 +4,7 @@ Práctica. Lectura y documentación del código de un extractor de entidades
 
 [ Acceso rápido a la carpeta con el [código fuente][ner] ]
 
-En esta práctica leerás el código de un programa escrito por otros y lo documentarás para demostrar que entiendes lo que hace. La documentación resultante es por lo que se te evaluará.
+En esta práctica leerás el código de un programa escrito por otros y lo documentarás para demostrar que entiendes lo que hace. La documentación resultante es por lo que se te evaluará. La práctica se ha de realizar en parejas.
 
 Desde diversos frentes se [defiende][defiende] la lectura de código escrito por otros como un enfoque adecuado para aprender a programar o mejorar las habilidades como programador. La metodología [PRIMM][primm], por ejemplo, incentiva la discusión entre los estudiantes sobre cómo funciona un determinado programa y usa código ya existente  para integrar la lectura de código como una etapa anterior a la escritura. 
 
@@ -23,7 +23,7 @@ Algunos estudios asemejan la labor de leer código a la de leer un texto escrito
 En esta práctica vas a estudiar un programa que permite entrenar y probar un sistema neuronal de reconocimiento de entidades nombradas. El programa se compone de varios módulos escritos en Python, algunos de los cuales usan la librería Pytorch para la programación del modelo neuronal. El código está en [esta carpeta][ner] del repositorio de la asignatura, que tendrás que clonar. A efectos de reconocimiento de la autoría, el código está tomado del que utilizan como inspiración para sus proyectos los estudiantes del curso Deep Learning ([CS230][cs230]) de la Universidad de Stanford.
 
 [cs230]: https://github.com/cs230-stanford/cs230-code-examples/
-[ner]: https://github.com/jaspock/mtextos/blob/main/code/ner/
+[ner]: https://github.com/jaspock/mtextos2122/blob/main/code/ner/
 
 El código original tiene algunos comentarios que puedes consultar en el repositorio del curso CS230 y que han sido eliminados en la versión de este curso; estos comentarios originales son relativamente generales. En esta práctica tienes que añadir muchos más comentarios para explicar con cierto nivel de detalle qué hacen las principales líneas del código. 
 
@@ -66,9 +66,7 @@ Algunas versiones de Pycco pueden provocar un error en Windows al intentar gener
 
 ## Orden sugerido para el estudio del código
 
-La {numref}`tab-ficheros` muestra el orden aproximado en que se recomienda ir documentando el código. Es posible que en ocasiones tengas que consultar parte de los ficheros de filas inferiores debido a las dependencias. En general, es recomendable que realices un primer repaso general sobre el código antes de ponerte a documentarlo.
-
-La documentación de los ficheros no marcados como opcionales permite sacar un 8,5 como máximo en esta práctica. Los ficheros opcionales permiten subir la nota final medio punto más cada uno.
+La {numref}`tab-ficheros` muestra el orden aproximado en que se recomienda ir documentando el código. Es posible que en ocasiones tengas que consultar parte de los ficheros de filas inferiores debido a las dependencias. En general, es recomendable que realices un primer repaso general sobre el código antes de ponerte a documentarlo. No hay que documentar los ficheros `search_hyperparams.py`, `synthesize_results.py` y `build_kaggle_dataset.py`.
 
 <p></p>
 
@@ -78,48 +76,38 @@ La documentación de los ficheros no marcados como opcionales permite sacar un 8
 
 * - Fichero
   - Dependencias
-  - Descripción
+  - Semana
   - Clases o funciones
 * - `build_vocab.py`
   - 
-  -
+  - S1
   - save_vocab_to_text_file, save_dict_to_json, update_vocab
 * - `utils.py`
   - 
-  -
+  - S1
   - Params, RunningAverage, set_logger, save_dict_to_json, save_checkpoint, load_checkpoint
 * - `model/net.py`
   - 
-  -
+  - S2
   - Net, accuracy, loss_fn
 * - `evaluate.py`
   - utils, model.net, model.data_loader
-  - 
+  - S3
   - evaluate
 * - `model/data_loader.py`
   - utils
-  -
+  - S4
   - DataLoader
 * - `train.py`
   - model.net, model.data_loader, utils
-  - 
+  - S4
   - train, train_and_evaluate
-* - `search_hyperparams.py`
-  - OPCIONAL
-  -
-  -
-* - `synthesize_results.py`
-  - OPCIONAL
-  -
-  -
-* - `build_kaggle_dataset.py`
-  - OPCIONAL
-  -
-  -
 ```
 
 ## Entrega
 
-La fecha límite para entregar la práctica es el 10 de mayo de 2021 a las 23.59 horas. Entrega a través del [servidor de prácticas][servidor] del Departamento un fichero zip de nombre `mtextos-ner-20-21.zip` que contenga directamente en la carpeta raíz el código fuente (incluida la carpeta `model`) con la estructura original que permita ejecutarlo, así como la carpeta `docs` generada por Pycco; no incluyas en el zip las carpetas `data`y `experiments`, ya que pueden ocupar demasiado espacio si has probado el código con datos de cierto tamaño.
+La fecha límite para entregar la práctica es el 5 de abril de 2022 a las 23.59 horas. Entrega a través del [servidor de prácticas][servidor] del Departamento un fichero zip de nombre `mtextos-ner-21-22.zip` que contenga directamente en la carpeta raíz el código fuente (incluida la carpeta `model`) con la estructura original que permita ejecutarlo, así como la carpeta `docs` generada por Pycco; no incluyas en el zip las carpetas `data` y `experiments`, ya que pueden ocupar demasiado espacio si has probado el código con datos de cierto tamaño.
+
+En el momento de realizar la entrega indica los datos de tu pareja. Solo uno de los dos miembros de la pareja ha de realizar la entrega.
 
 [servidor]: https://pracdlsi.dlsi.ua.es/index.cgi

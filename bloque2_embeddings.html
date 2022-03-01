@@ -50,10 +50,10 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Práctica. Lectura y documentación del código de un extractor de entidades" href="bloque2_practica.html" />
+    <link rel="prev" title="Revisión histórica" href="bloque2_historia.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -102,7 +102,7 @@
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="bloque1.html">
    Introducción a la minería de textos
@@ -149,19 +149,29 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="bloque2.html">
    Técnicas para la minería de textos
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="bloque2_historia.html">
      Revisión histórica
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Representaciones de palabras y oraciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque2_practica.html">
+     Práctica. Lectura y documentación del código de un extractor de entidades
     </a>
    </li>
   </ul>
@@ -270,18 +280,6 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ecuaciones-del-modelo-cbow">
-   Ecuaciones del modelo CBOW
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analisis-de-las-ecuaciones">
-     Análisis de las ecuaciones
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#visualizacion-de-embeddings">
    Visualización de embeddings
   </a>
@@ -317,18 +315,6 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ecuaciones-del-modelo-cbow">
-   Ecuaciones del modelo CBOW
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#analisis-de-las-ecuaciones">
-     Análisis de las ecuaciones
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#visualizacion-de-embeddings">
    Visualización de embeddings
   </a>
@@ -352,44 +338,23 @@
 <p>Un aspecto fundamental en el procesamiento del lenguaje natural es utilizar representaciones numéricas adecuadas de los textos en los diferentes niveles (subpalabras, palabras, frases,  párrafos, etc.). En este apartado nos centraremos especialmente en las palabras y en uno de los algoritmos más utilizados para obtener dichas representaciones conocidas como <em>word embeddings</em>.</p>
 <div class="section" id="introduccion-a-los-embeddings-de-palabras">
 <h2>Introducción a los embeddings de palabras<a class="headerlink" href="#introduccion-a-los-embeddings-de-palabras" title="Permalink to this headline">¶</a></h2>
-<p>Para comenzar con el tema vamos a seguir la <a class="reference external" href="https://jalammar.github.io/illustrated-word2vec/">guía ilustrada</a> sobre embeddings de palabras de Jay Alammar. Esta guía describe la familia de algoritmos conocidos como <em>word2vec</em>; este conjunto de algoritmos lo forman <em>contextual bag of words</em> (CBOW) y <em>skip-gram</em>. Aquí nos centraremos en el primero, pero las ideas en las que se basa el segundo son muy similares.</p>
+<p>Para una introducción sencilla al tema puedes seguir la <a class="reference external" href="https://jalammar.github.io/illustrated-word2vec/">guía ilustrada</a> sobre embeddings de palabras de Jay Alammar. Esta guía describe la familia de algoritmos conocidos como <em>word2vec</em>que incluye las técnicas denominadas <em>contextual bag of words</em> (CBOW) y <em>skip-grams</em>. Aquí nos centraremos en una versión simplificada de la segunda, pero las ideas en las que se basa la primera son muy similares.</p>
+<p>Los contenidos nucleares del tema son los incluidos en las secciones 6.4 y 6.8-6.12 del capítulo 6 (“Vector semantics and embeddings”) de la tercera edición del libro “<a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/">Speech and language processing</a>”. Usa esos contenidos junto con los apuntes de clase en tu aprendizaje. Algunos conceptos básicos como la entropía cruzada o el algoritmo de descenso por gradiente se introducen en las secciones 5.4-5.6, aunque estos se discutirán en clase y en otras asignaturas.</p>
 <div class="note admonition">
 <p class="admonition-title">Nota</p>
-<p>Los algoritmos de word2vec no son la única manera de obtener embeddings de palabras. Anteriormente, ya se habían propuesto otras formas de obtenerlos.</p>
+<p>Los algoritmos de word2vec no son la única manera de obtener embeddings de palabras.</p>
 <p>Se puede utilizar una red neuronal <em>feedforward</em> con una capa oculta que usa a la entrada los embeddings de las <em>n</em> palabras anteriores y emite a la salida la probabilidad de la siguiente palabra. En este caso, las activaciones de la capa oculta se podrían tomar como los embeddings de dicha palabra. A diferencia de CBOW, aquí habría una capa oculta y se usarían solo las palabras anteriores, aunque es trivial adaptar la red para que use a la entrada un contexto de palabras anteriores y posteriores.</p>
 <p>Una opción más elaborada pasa por usar una red neuronal recurrente con una capa oculta entrenada para predecir la siguiente palabra. Una vez finalizado el entrenamiento, se podrían utilizar las representaciones de estado de la capa oculta como embeddings de las palabras. A diferencia de CBOW, los embeddings aquí no son estáticos (incontextuales): dada una frase en particular, se puede ir suministrando a la red recurrente los embeddings de las palabras anteriores y obtener una representación vectorial de la siguiente palabra en el contexto anterior concreto de dicha frase.</p></p>
 <p>Más adelante, veremos arquitecturas aún más avanzadas (como BERT) que permiten obtener embeddings contextuales más profundos.
 </div>
-<p>De los embeddings aprendidos con word2vec se pueden obtener ciertas analogías interesantes con simples operaciones aritméticas sobre los embeddings. Así, si consideramos el embedding más cercano al vector resultante de calcular embedding(“France”) - embedding(“Paris”) + embedding(“Rome”), este resulta ser el correspondiente a “Italy”. Otras analogías interesantes se pueden ver en la figura <code class="xref std std-numref docutils literal notranslate"><span class="pre">analogia-word2vec</span></code>.</p>
+<p>De los embeddings aprendidos con word2vec se pueden obtener ciertas analogías interesantes con simples operaciones aritméticas sobre los embeddings. Así, si consideramos el embedding más cercano al vector resultante de calcular embedding(“France”) - embedding(“Paris”) + embedding(“Rome”), este resulta ser el correspondiente a “Italy”. Otras analogías interesantes se pueden ver en la figura <a class="reference internal" href="#analogia-word2vec"><span class="std std-numref">Fig. 1</span></a>.</p>
 <div class="figure align-default" id="analogia-word2vec">
 <a class="reference internal image-reference" href="_images/mikolov-word2vec-analogies.png"><img alt="_images/mikolov-word2vec-analogies.png" src="_images/mikolov-word2vec-analogies.png" style="height: 400px;" /></a>
-<p class="caption"><span class="caption-text">Analogías mostradas en el trabajo de <a class="reference external" href="https://arxiv.org/pdf/1301.3781.pdf">Mikolov et al.</a> de 2013.</span><a class="headerlink" href="#analogia-word2vec" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="ecuaciones-del-modelo-cbow">
-<h2>Ecuaciones del modelo CBOW<a class="headerlink" href="#ecuaciones-del-modelo-cbow" title="Permalink to this headline">¶</a></h2>
-<p>Las ecuaciones que conforman el modelo CBOW están descritas en las secciones 4.1. y 4.2 de estas <a class="reference external" href="https://web.stanford.edu/class/cs224n/readings/cs224n-2019-notes01-wordvecs1.pdf">notas de clase</a> del curso <a class="reference external" href="https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1204/">CS224n</a> (Natural Language Processing with Deep
-Learning) de Stanford.</p>
-<div class="section" id="analisis-de-las-ecuaciones">
-<h3>Análisis de las ecuaciones<a class="headerlink" href="#analisis-de-las-ecuaciones" title="Permalink to this headline">¶</a></h3>
-<p>Resumiendo lo que allí se explica, una vez fijado el vocabulario, tenemos dos embeddings diferentes para cada palabra. Estos embeddings se agrupan en las matrices <span class="math notranslate nohighlight">\(\cal{V}\)</span> (para los embeddings de entrada) y <span class="math notranslate nohighlight">\(\cal{U}\)</span> (embeddings de salida) en las que la fila <span class="math notranslate nohighlight">\(i\)</span>-esima o la columna <span class="math notranslate nohighlight">\(i\)</span>-ésima, respectivamente, son la representación vectorial de la palabra <span class="math notranslate nohighlight">\(i\)</span>-esima del vocabulario; esta diferencia en la organización de los valores por filas o columnas simplemente sirve para que los productos matriciales sean más cómodos de realizar, pero no tiene ninguna otra justificación. La representación de la palabra <span class="math notranslate nohighlight">\(i\)</span>-ésima según la matriz considerada se denota por <span class="math notranslate nohighlight">\(\boldsymbol{v}_i\)</span> o bien <span class="math notranslate nohighlight">\(\boldsymbol{u}_i\)</span>. La otra dimensión de estas dos matrices es el tamaño de los embeddings <span class="math notranslate nohighlight">\(n\)</span>.</p>
-<p>El modelo se entrena para predecir la palabra central en base a las palabras del contexto (por ejemplo, en base a las dos palabras a su izquierda y a las dos palabras a su derecha). Todas las palabras del contexto se representan con un único vector de tamaño <span class="math notranslate nohighlight">\(n\)</span>, denotado por <span class="math notranslate nohighlight">\(\hat{\boldsymbol{v}}\)</span>, resultado de promediar los embeddings correspondientes a cada una de ellas según <span class="math notranslate nohighlight">\(\cal{V}\)</span>. A continuación, el algoritmo CBOW calcula el producto <span class="math notranslate nohighlight">\(\boldsymbol{z} = \hat{\boldsymbol{v}} \, \cal{U}\)</span>. El resultado de esta multiplicación, <span class="math notranslate nohighlight">\(\boldsymbol{z}\)</span>, es un vector de tamaño <span class="math notranslate nohighlight">\(n\)</span> donde el elemento <span class="math notranslate nohighlight">\(i\)</span>-ésimo es el producto escalar del vector representante del contexto de entrada <span class="math notranslate nohighlight">\(\hat{\boldsymbol{v}}\)</span> y el embedding de la palabra <span class="math notranslate nohighlight">\(i\)</span>-ésima según <span class="math notranslate nohighlight">\(\cal{U}\)</span>. Es importante destacar que el producto escalar puede usarse como una medida de <a class="reference external" href="https://math.stackexchange.com/a/689078">similitud entre dos vectores</a>. Por ello, si <span class="math notranslate nohighlight">\(\boldsymbol{z}_i &gt; \boldsymbol{z}_j\)</span>, podemos concluir que el embedding promediado que representa el contexto de la entrada es más parecido al embedding de salida (según la matriz <span class="math notranslate nohighlight">\(\cal{U}\)</span>) de la palabra <span class="math notranslate nohighlight">\(i\)</span>-ésima que al de la palabra <span class="math notranslate nohighlight">\(j\)</span>-ésima. Para poder interpretar los valores de <span class="math notranslate nohighlight">\(\boldsymbol{z}\)</span> como probabilidades, solo queda normalizarlos mediante la función softmax para obtener <span class="math notranslate nohighlight">\(\hat{\boldsymbol{y}}\)</span>. A los valores de <span class="math notranslate nohighlight">\(\boldsymbol{z}\)</span>, previos a la normalización, se les conoce normalmente como <em>logits</em>.</p>
-<p>La función de error compara la salida producida por la red con el vector one-hot correspondiente a la palabra central. Para que este error sea lo menor posible, el elemento de <span class="math notranslate nohighlight">\(\hat{\boldsymbol{y}}\)</span> correspondiente al índice de la palabra central ha de ser lo mayor posible, y esto solo se consigue si el vector representante de la entrada <span class="math notranslate nohighlight">\(\hat{\boldsymbol{v}}\)</span> (y, por ende, los embeddings de las palabras del contexto) es parecido al embedding de salida de la palabra central. Vemos cómo de esta manera los embeddings de las palabras del contexto y de la palabra central se irán acercando durante el entrenamiento en ambas matrices.</p>
-<p>Dado que la salida deseada <span class="math notranslate nohighlight">\(\boldsymbol{y}\)</span> es un vector one-hot, si asumimos que la palabra central tiene por índice <span class="math notranslate nohighlight">\(c\)</span>, la entropia cruzada que define la función de pérdida entre este vector y la salida de la red es simplemente <span class="math notranslate nohighlight">\(J = - \text{log}(\hat{y}_c)\)</span>, que se puede expresar de forma que dependa de los embeddings contextuales de entrada y del embedding de salida <span class="math notranslate nohighlight">\(\boldsymbol{u}_c\)</span> (para poder así calcular las derivadas parciales y actualizar esos embeddings mediante descenso por gradiente) sustituyendo <span class="math notranslate nohighlight">\(\hat{\boldsymbol{y}}_c\)</span> y aplicando estas propiedades de los logaritmos:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\log a/b &amp;=&amp; \log a - \log b \\[1.5ex]
-\log e^a &amp;=&amp; a
-\end{split}\]</div>
-<p>Tras el entrenamiento del modelo CBOW se suelen considerar los embeddings de <span class="math notranslate nohighlight">\(\cal{V}\)</span> como los representantes de las palabras a usar en la tarea de aprendizaje principal, aunque en principio también podrían usarse los de <span class="math notranslate nohighlight">\(\cal{U}\)</span>.</p>
-<div class="note admonition">
-<p class="admonition-title">Nota</p>
-<p>Es recomendable que amplíes tus conocimientos sobre la <a class="reference external" href="https://towardsdatascience.com/cross-entropy-loss-function-f38c4ec8643e">entropia</a> y la <a class="reference external" href="https://datascience.stackexchange.com/a/20301">entropía cruzada</a> siguiendo estos enlaces, ya que son conceptos fundamentales en aprendizaje automático, en general, y procesamiento del lenguaje natural, en particular.</p>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Analogías mostradas en el trabajo de <a class="reference external" href="https://arxiv.org/pdf/1301.3781.pdf">Mikolov et al.</a> de 2013.</span><a class="headerlink" href="#analogia-word2vec" title="Permalink to this image">¶</a></p>
 </div>
 <div class="note admonition">
 <p class="admonition-title">Nota</p>
-<p>Dado que en la función de error necesitamos calcular el logaritmo de una probabilidad, es habitual usar al final de la red neuronal la función log_softmax en lugar de softmax, que aunque conceptualmente podemos ver como la misma función con la aplicación final de un logaritmo, tiene una implementación más eficiente y numericamente estable.</p>
-</div>
+<p>Es recomendable que amplíes tus conocimientos sobre la <a class="reference external" href="https://towardsdatascience.com/cross-entropy-loss-function-f38c4ec8643e">entropia</a> y la <a class="reference external" href="https://towardsdatascience.com/cross-entropy-for-classification-d98e7f974451">entropía cruzada</a> siguiendo estos enlaces, ya que son conceptos fundamentales en aprendizaje automático, en general, y procesamiento del lenguaje natural, en particular.</p>
 </div>
 </div>
 <div class="section" id="visualizacion-de-embeddings">
@@ -434,7 +399,21 @@ Learning) de Stanford.</p>
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="bloque2_historia.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Revisión histórica</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="bloque2_practica.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Práctica. Lectura y documentación del código de un extractor de entidades</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>
