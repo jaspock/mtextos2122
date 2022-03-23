@@ -275,20 +275,8 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#arquitectura-codificador-descodificador-sobre-redes-recurrentes-y-mecanismo-de-atencion">
-   Arquitectura codificador-descodificador sobre redes recurrentes y mecanismo de atención
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ecuaciones-del-modelo-seq2seq-recurrente">
-     Ecuaciones del modelo seq2seq recurrente
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   La arquitectura transformer
+  <a class="reference internal nav-link" href="#el-transformer">
+   El transformer
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -299,11 +287,6 @@
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#un-simil-del-mecanismo-de-autoatencion">
      Un símil del mecanismo de autoatención
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#las-diferentes-caras-de-la-atencion">
-     Las diferentes caras de la atención
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -349,20 +332,8 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#arquitectura-codificador-descodificador-sobre-redes-recurrentes-y-mecanismo-de-atencion">
-   Arquitectura codificador-descodificador sobre redes recurrentes y mecanismo de atención
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ecuaciones-del-modelo-seq2seq-recurrente">
-     Ecuaciones del modelo seq2seq recurrente
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   La arquitectura transformer
+  <a class="reference internal nav-link" href="#el-transformer">
+   El transformer
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -373,11 +344,6 @@
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#un-simil-del-mecanismo-de-autoatencion">
      Un símil del mecanismo de autoatención
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#las-diferentes-caras-de-la-atencion">
-     Las diferentes caras de la atención
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -414,54 +380,14 @@
   <div class="section" id="la-arquitectura-transformer">
 <h1>La arquitectura transformer<a class="headerlink" href="#la-arquitectura-transformer" title="Permalink to this headline">¶</a></h1>
 <p>En 2017 las redes neuronales recurrentes basadas en unidades LSTM como las que hemos estudiado eran la arquitectura habitual para el procesamiento neuronal de secuencias, en general, y del lenguaje natural, en particular. Algunos investigadores comenzaban a obtener también buenos resultados en esta área con las redes neuronales convolucionales, tradicionalmente empleadas con imágenes. Por otro lado, los mecanismos de atención introducidos unos años antes en las redes recurrentes habían mejorado su capacidad para resolver ciertas tareas y abierto el abánico de posibilidades de estos modelos. Además, el modelo conocido como codificador-descodificador (<em>encoder-decoder</em> en inglés) se convertía en la piedra angular de los sistemas que transformaban una secuencia en otra (sistemas conocidos como <em>seq2seq</em> como, por ejemplo, los sistemas de traducción automática o de obtención de resúmenes). A mediados de 2017, sin embargo, aparece un artículo <a class="bibtex reference internal" href="#allyouneed" id="id1">[VSP+17]</a> que propone eliminar la recurrencia del modelo codificador-descodificador y sustituirla por lo que se denomina autoatención (<em>self-attention</em>); aunque el artículo se centra en la tarea de la traducción automática, en muy poco tiempo la aplicación de esta arquitectura, bautizada como <em>transformer</em>, en muchos otros campos se descubre altamente eficaz hasta el punto de relegar a las arquitecturas recurrentes a un segundo plano. El transformer sería, además, uno de los elementos fundamentales de los modelos preentrenados que estudiaremos más adelante y que comenzarían a aparecer en los meses o años siguientes.</p>
-<p>En este apartado comenzaremos estudiando la arquitectura codificador-decodificador y el mecanismo de atención inicial propuesto para ellas, para pasar después a estudiar el transformer y su mecanismo de autoatención.</p>
+<div class="section" id="el-transformer">
+<h2>El transformer<a class="headerlink" href="#el-transformer" title="Permalink to this headline">¶</a></h2>
+<p>Como primera aproximación, puedes usar la guía ilustrada de Jay Alammar sobre el <a class="reference external" href="http://jalammar.github.io/illustrated-transformer/">transformer</a>.</p>
+<p>Los contenidos nucleares del tema son los incluidos en las secciones 11.1 (“Bidirectional transformer encoders”) y 9.7 (“Self-attention networks: transformers”) de la tercera edición del libro “<a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/">Speech and language processing</a>”. Usa esos contenidos junto con los apuntes de clase en tu aprendizaje.</p>
 <div class="note admonition">
 <p class="admonition-title">Nota</p>
-<p>Aunque el énfasis en esta asignatura no está en la traducción automática, los desarrollos que vamos a comentar surgieron inicialmente en esta tarea, por lo que la discusión girará en torno a esta aplicación concreta. En posteriores apartados veremos cómo los modelos pueden adaptarse sin excesivas modificaciones a otras tareas más específicas de la minería de textos.</p>
-</div>
-<div class="section" id="arquitectura-codificador-descodificador-sobre-redes-recurrentes-y-mecanismo-de-atencion">
-<h2>Arquitectura codificador-descodificador sobre redes recurrentes y mecanismo de atención<a class="headerlink" href="#arquitectura-codificador-descodificador-sobre-redes-recurrentes-y-mecanismo-de-atencion" title="Permalink to this headline">¶</a></h2>
-<p>Para comenzar con el tema, vamos a seguir la guía ilustrada de Jay Alammar sobre los modelos <a class="reference external" href="https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/">seq2seq con atención</a>. Esta guía aborda inicialmente el estudio de la arquitectura codificador-descodificador sobre redes neuronales recurrentes y describe entonces en la última parte el mecanismo de atención.</p>
-<div class="section" id="ecuaciones-del-modelo-seq2seq-recurrente">
-<h3>Ecuaciones del modelo seq2seq recurrente<a class="headerlink" href="#ecuaciones-del-modelo-seq2seq-recurrente" title="Permalink to this headline">¶</a></h3>
-<p>Veamos en primer lugar las ecuaciones del modelo sin atención en el que un vector de contexto fijo para cada frase <em>resume</em> toda la información del codificador. El estado en el instante <span class="math notranslate nohighlight">\(t\)</span> del codificador es:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\boldsymbol{h}_t = f(\boldsymbol{x}_t,\boldsymbol{h}_{t-1}) \\[1.5ex]
-\end{split}\]</div>
-<p>donde <span class="math notranslate nohighlight">\(f\)</span> y el resto de funciones que se muestran a conmtinuación se instrumentan como redes neuronales. La fórmula anterior es como la usada en la red de Elman. El vector de contexto, si <span class="math notranslate nohighlight">\(m\)</span> es la longitud de la secuencia de entrada, es:</p>
-<div class="math notranslate nohighlight">
-\[
-\boldsymbol{c} = q(\{\boldsymbol{h}_1,\ldots,\boldsymbol{h}_m\})
-\]</div>
-<p>El descodificador se puede caracterizar como:</p>
-<div class="math notranslate nohighlight">
-\[
-\boldsymbol{s}_i = g(\boldsymbol{s}_{i-1},\boldsymbol{y}_{i-1},\boldsymbol{c})
-\]</div>
-<p>es decir, como una red recurrente condicionada por el vector de contexto que resume la frase de entrada y por la salida emitida por el descodificador en el instante anterior; esto último es lo que da su naturaleza autoregresiva al modelo. La salida del modelo es:</p>
-<div class="math notranslate nohighlight">
-\[
-\boldsymbol{y}_i = m(\boldsymbol{s}_i)
-\]</div>
-<p>La arquitectura anterior fue la propuesta por Ilya Sutskever, Oriol Vinyals y Quoc V. Le en 2014. Unos meses después, Dzmitry Bahdanau, Kyunghyun Cho y Yoshua Bengio incorporaron el mecanismo de atención que implica reescribir la ecuación de <span class="math notranslate nohighlight">\(\boldsymbol{s}_i\)</span> como sigue:</p>
-<div class="math notranslate nohighlight">
-\[
-\boldsymbol{s}_i = g(\boldsymbol{s}_{i-1},\boldsymbol{y}_{i-1},\boldsymbol{c}_i)
-\]</div>
-<p>El vector de contexto ya no es fijo, sino que cambia para cada token del descodificador:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-e_{ij} &amp;=&amp; a(\boldsymbol{s}_i,\boldsymbol{h}_j) \\[1.5ex]
-\alpha_{ij} &amp;=&amp; \frac{\mathrm{exp}(e_{ij})}{\sum_k \mathrm{exp}(e_{ik})} \\[1.5ex]
-\boldsymbol{c}_i &amp;=&amp; \sum_{j=1}^m \alpha_{ij} \boldsymbol{h}_j
-\end{split}\]</div>
-</div>
-</div>
-<div class="section" id="id2">
-<h2>La arquitectura transformer<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>Introducida la arquitectura <em>seq2seq</em>, usaremos en este bloque otra guía ilustrada de Jay Alammar para presentar este vez el <a class="reference external" href="http://jalammar.github.io/illustrated-transformer/">transformer</a>.</p>
 <p>Las representaciones aprendidas tras el entrenamiento por un transformer en cada una de sus capas para una nueva frase de entrada pueden considerarse (de la misma manera que con una red recurrente) como embeddings contextuales de los diferentes tokens de la entrada que pueden usarse a la hora de representarlos en otras tareas. En principio, cualquier capa puede ser adecuada para obtener estas representaciones, pero algunos trabajos han demostrado que ciertas capas son más adecuadas que otras para ciertas tareas. Las capas más cercanas a la entrada parecen representar información más relacionada con la morfología, mientras que las capas finales se relacionan más con la semántica.</p>
+</div>
 <div class="section" id="ecuaciones-del-transformer">
 <h3>Ecuaciones del transformer<a class="headerlink" href="#ecuaciones-del-transformer" title="Permalink to this headline">¶</a></h3>
 <p>El transformer usa la arquitectura codificador-descodificador para emitir de forma autoregresiva una secuencia de salida <span class="math notranslate nohighlight">\(\boldsymbol{y}= y_1, y_2,\ldots,y_n\)</span> a partir de una secuencia de entrada <span class="math notranslate nohighlight">\(\boldsymbol{x}= x_1, x_2,\ldots,x_n\)</span>. Habitualmente cada <span class="math notranslate nohighlight">\(x_i\)</span> será un embedding <em>no contextual</em> para el token correspondiente de la frase a procesar obtenido de una tabla de embeddings, y cada <span class="math notranslate nohighlight">\(y_i\)</span> será el vector de probabilidades correspondiente al <span class="math notranslate nohighlight">\(i\)</span>-ésimo token de la frase de salida.</p>
@@ -505,40 +431,6 @@ similitud(&quot;narancoque&quot;,&quot;naranja&quot;) → 30
 \[
 \text{SelfAtt}(Q,K,V) = \text{softmax}\left( \frac{Q K^T}{\sqrt{d_k}} \right) V
 \]</div>
-</div>
-<div class="section" id="las-diferentes-caras-de-la-atencion">
-<h3>Las diferentes caras de la atención<a class="headerlink" href="#las-diferentes-caras-de-la-atencion" title="Permalink to this headline">¶</a></h3>
-<p>En el siguiente análisis nos basaremos en la <a class="reference external" href="https://stats.stackexchange.com/a/424127/240809">discusión</a> de <em>dontloo</em> en Cross Validated.</p>
-<p>En el sistema <em>seq2seq</em>, la atención calcula una media ponderada de las claves:</p>
-<div class="math notranslate nohighlight">
-\[
-\boldsymbol{c} = \sum_{j} \alpha_j \boldsymbol{h}_j   \qquad \mathrm{con} \,\, \sum_j \alpha_j = 1
-\]</div>
-<p>Si <span class="math notranslate nohighlight">\(\alpha\)</span> fuera un vector one-hot, la atención se reduciría a recuperar aquel elemento de entre los distintos <span class="math notranslate nohighlight">\(\boldsymbol{h}_j\)</span> en base al correspondiente índice; pero sabemos que <span class="math notranslate nohighlight">\(\alpha\)</span> difícilmente será un vector unitario, por lo que se tratará más bien de una recuperación ponderada. En este caso, <span class="math notranslate nohighlight">\(\boldsymbol{c}\,\)</span> puede considerarse como el valor resultante.</p>
-<p>Hay una diferencia importante en cómo este vector de pesos con suma 1 se obtiene en las arquitecturas de <em>seq2seq</em> y la del <em>transformer</em>. En el primer caso, se usa una red neuronal <em>feedforward</em>, representada mediante la función <span class="math notranslate nohighlight">\(a\)</span>, que determina la <em>compatibilidad</em> entre la representación del token <span class="math notranslate nohighlight">\(i\)</span>-ésimo del descodificador <span class="math notranslate nohighlight">\(\boldsymbol{s}_i\)</span> y la representación del token <span class="math notranslate nohighlight">\(j\)</span>-ésimo del codificador <span class="math notranslate nohighlight">\(\boldsymbol{h}_j\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[
-e_{ij} = a(\boldsymbol{s}_i,\boldsymbol{h}_j)
-\]</div>
-<p>y de aquí:</p>
-<div class="math notranslate nohighlight">
-\[
-\alpha_{ij} = \frac{\mathrm{exp}(e_{ij})}{\sum_k \mathrm{exp}(e_{ik})}
-\]</div>
-<p>Supongamos que la longitud de la secuencia de entrada es <span class="math notranslate nohighlight">\(m\)</span> y la de la salida generada hasta este momento es <span class="math notranslate nohighlight">\(n\)</span>. Un problema de este enfoque es que en cada paso del descodificador es necesario pasar por la red neuronal <span class="math notranslate nohighlight">\(a\)</span> un total de <span class="math notranslate nohighlight">\(mn\)</span> veces para computar todos los <span class="math notranslate nohighlight">\(e_{ij}\)</span>.</p>
-<p>Existe una estrategia más eficiente que pasa por proyectar los <span class="math notranslate nohighlight">\(\boldsymbol{s}_i\)</span> y los <span class="math notranslate nohighlight">\(\boldsymbol{h}_j\)</span> a un espacio común (mediante, por ejemplo, sendas transformaciones lineales de una capa, <span class="math notranslate nohighlight">\(f\)</span> y <span class="math notranslate nohighlight">\(g\)</span>) y usar entonces una medida de similitud (como el producto escalar) para obtener la puntuación <span class="math notranslate nohighlight">\(e_{ij}\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[
-e_{ij} = f(\boldsymbol{s}_i) \cdot g(\boldsymbol{h}_j)^T
-\]</div>
-<p>Podemos considerar que el vector de proyección <span class="math notranslate nohighlight">\(f(\boldsymbol{s}_i)\)</span> es la consulta realizada por el descodificador y el vector de proyección <span class="math notranslate nohighlight">\(g(\boldsymbol{h}_j)\)</span> es la clave proveniente del descodificador. Ahora solo es necesario realizar <span class="math notranslate nohighlight">\(n\)</span> llamadas a <span class="math notranslate nohighlight">\(f\)</span> y <span class="math notranslate nohighlight">\(m\)</span> llamadas a <span class="math notranslate nohighlight">\(g\)</span>, con lo que hemos reducido la complejidad a <span class="math notranslate nohighlight">\(m+n\)</span>. Además, hemos conseguido que los <span class="math notranslate nohighlight">\(e_{ij}\)</span> puedan calcularse eficientemente mediante producto de matrices.</p>
-<p>El mecanismo de atención del transformer establece las condiciones para que las proyecciones de consultas y claves y el cálculo de la similitud se puedan llevar a cabo. Cuando la atención se realiza desde y hacia vectores con el mismo origen (por ejemplo, dentro del codificador) se denomina <em>autoatención</em>. El transformer combina autoatención separada en codificador y descodificador con el otro mecanismo de atención <em>heterogénea</em> en el que <span class="math notranslate nohighlight">\(Q\)</span> viene del descodificador y <span class="math notranslate nohighlight">\(K\)</span> y <span class="math notranslate nohighlight">\(V\)</span> vienen del codificador.</p>
-<p>Como ya se ha visto, la ecuación básica de la autoatención en el transformer es esta:</p>
-<div class="math notranslate nohighlight">
-\[
-\mathrm{SelfAttn}(Q,K,V) = \mathrm{softmax} \left( \frac{QK^T}{\sqrt{d_k}} \right) V
-\]</div>
-<p>En realidad, las ecuaciones finales del transformer son ligeramente más complejas que esta al tener que considerar los múltiples cabezales.</p>
 </div>
 <div class="section" id="normalizacion-de-capa">
 <h3>Normalización de capa<a class="headerlink" href="#normalizacion-de-capa" title="Permalink to this headline">¶</a></h3>
