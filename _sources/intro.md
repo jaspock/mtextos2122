@@ -20,6 +20,8 @@ Novedades
 :widths: 10 90
 :class: tablita
 
+* - 24 Mar
+  - La entrega de la práctica de documentación del código del reconocedor de entidades se ha retrasado hasta el 2 de mayo de 2022. No obstante el servidor de entrega ya está abierto.
 * - 25 Ene 
   - Se ha publicado la primera versión de los materiales de la asignatura. Estos materiales pueden pueden ir cambiando antes de la clase en la que se impartan.
 

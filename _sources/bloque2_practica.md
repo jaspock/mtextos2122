@@ -106,7 +106,7 @@ La {numref}`tab-ficheros` muestra el orden aproximado en que se recomienda ir do
 
 ## Entrega
 
-La fecha límite para entregar la práctica es el 5 de abril de 2022 a las 23.59 horas. Entrega a través del [servidor de prácticas][servidor] del Departamento un fichero zip de nombre `mtextos-ner-21-22.zip` que contenga directamente en la carpeta raíz el código fuente (incluida la carpeta `model`) con la estructura original que permita ejecutarlo, así como la carpeta `docs` generada por Pycco; no incluyas en el zip las carpetas `data` y `experiments`, ya que pueden ocupar demasiado espacio si has probado el código con datos de cierto tamaño.
+La fecha límite para entregar la práctica es el 2 de mayo de 2022 a las 23.59 horas. Entrega a través del [servidor de prácticas][servidor] del Departamento un fichero zip de nombre `mtextos-ner-21-22.zip` que contenga directamente en la carpeta raíz el código fuente (incluida la carpeta `model`) con la estructura original que permita ejecutarlo, así como la carpeta `docs` generada por Pycco; no incluyas en el zip las carpetas `data` y `experiments`, ya que pueden ocupar demasiado espacio si has probado el código con datos de cierto tamaño.
 
 En el momento de realizar la entrega indica los datos de tu pareja. Solo uno de los dos miembros de la pareja ha de realizar la entrega.
 
