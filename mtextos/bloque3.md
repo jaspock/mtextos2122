@@ -20,7 +20,7 @@ Este tercer bloque analiza diversas aplicaciones de las técnicas de procesamien
 
 ### Prácticas
 
-%- [P1. Creación de baseline con Sklearn. Caso de uso Clasificación de Documentos][p1]
+- [P1. Creación de baseline con Sklearn. Caso de uso Clasificación de Documentos][p1]
 %- [P1.2. Utilización de modelos transformers ya existentes como API. Caso de uso Clasificación de Documentos][p2]
 %- [P2. Transformer fine tunnig. Caso de uso Clasificación de Documentos][p3]
 %- [P3. Composición de características auxiliándose de transformers y otras tecnicas de extracción de  características. Caso de uso Clasificación de Documentos][p4]
@@ -29,7 +29,7 @@ Este tercer bloque analiza diversas aplicaciones de las técnicas de procesamien
 
 ### Evaluación
 
-%- [Ev1. Creación de un cuaderno/sistema para resolver un problema del mundo real][ev1]
+- [Ev1. Creación de un cuaderno/sistema para resolver un problema del mundo real][ev1]
 
 
 [abreu url]: https://scholar.google.es/citations?user=62u6KEkAAAAJ&hl=es
