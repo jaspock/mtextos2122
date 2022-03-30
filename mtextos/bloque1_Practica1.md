@@ -1,53 +1,77 @@
-﻿
-
-# Fundamentos de PLN. Práctica 1.
+﻿# Práctica 1.
+Borja Navarro Colorado
 
 ## Objeto
 
-Crear un *script* para anotar un pequeño corpus a diferentes niveles de descripción lingüística con SPaCy. Este tipo de pre-procesamiento del corpus es común en diferentes tareas de minería de textos.
+El objetivo de esta práctica es crear un *script* que procese un texto amplio con las aplicaciones comunes del PLN:
 
-Análisis a realizar:
+- lematización,
+- *PoS_tagger*,
+- *parser* de dependencias y
+- detección de entidades nombradas.
 
-- Tokenización
-- Lematización
-- Análisis categorial y morfológico
-- Análisis sintáctico de dependencias
-- Extracción de entidades
-
-Con esta práctica aprenderás los fundamentos de SpaCy como herramienta de PLN para preprocesar corpus para minería de textos. Se asume que se conoce cómo funciona COLAB. Si no es así, consulta al profesor.
+Para ello, se utilizará el *pipeline* básico de la herramienta de PLN [SpaCy](https://spacy.io/).
 
 ## Herramientas
 
-- Cuaderno COLAB para crear el código: [https://colab.research.google.com](https://colab.research.google.com)
+- Cuaderno COLAB para crear el código: [https://colab.research.google.com](https://colab.research.google.com) y cuenta gCloud.
 - Python (ya instalado en COLAB)
 - SpaCy: [https://spacy.io/](https://spacy.io/)
 
-## Recursos
+## Corpus
 
-- Corpus: un fichero de texto que puedes descargar [aquí](https://www.dlsi.ua.es/~borja/a2.txt). Codificación: UTF-8.
-- Documentación básica SpaCy. Aquí está explicado todo lo necesario para hacer esta páctica:
+Para darle algo de interés a la práctica, vamos a utilizar el tipo de texto más complejo que exite: el texto literario. En concreto debéis analizar una novela del corpus [ELTeC](https://github.com/COST-ELTeC).
 
-[https://spacy.io/usage/spacy-101](https://spacy.io/usage/spacy-101)
+ELTeC es un corpus multilingüe de novelas publicada en Europa durante los siglos XIX y XX. Cada novela está anotada a tres niveles: básico, estándar y avanzado. __Debéis seleccionar una novela del nivel estándar.__ A este nivel, cada novela está marcada en XML siguiendo el estándar [TEI](https://tei-c.org/). Podéis utilizar el idioma que queráis (siempre que se encuentre en SpaCy, ver [modelos disponibles](https://spacy.io/models)). Por ejemplo:
+
+- novelas en español: [https://github.com/COST-ELTeC/ELTeC-spa/tree/master/level1](https://github.com/COST-ELTeC/ELTeC-spa/tree/master/level1)
+- novelas en inglés: [https://github.com/COST-ELTeC/ELTeC-eng/tree/master/level1](https://github.com/COST-ELTeC/ELTeC-eng/tree/master/level1)
+- novelas en francés: [https://github.com/COST-ELTeC/ELTeC-fra/tree/master/level1](https://github.com/COST-ELTeC/ELTeC-fra/tree/master/level1)
+- novelas en portugués: [https://github.com/COST-ELTeC/ELTeC-por/tree/master/level1](https://github.com/COST-ELTeC/ELTeC-por/tree/master/level1)
+- etc...
+
+Dado que el corpus está en GitHub, se puede clonar el repo y abrir los ficheros directamente  directamente desde COLAB.
+
+
+## Documentación
+
+- Documentación básica SpaCy. Aquí está explicado todo lo necesario sobre PLN para realizar esta páctica:
+    [https://spacy.io/usage/spacy-101](https://spacy.io/usage/spacy-101)
+- Más información sobre SpaCy:
+    - Curso avanzado: [https://course.spacy.io/es/](https://course.spacy.io/es/)
+    - Documentación oficial: [https://spacy.io/usage](https://spacy.io/usage)
 
 ### Por pasos:
 
 1. Crear un cuaderno COLAB vacío.
-2. Importar SpaCy (Esto es fácil :)
+2. Importar SpaCy, descargar el módulo de idioma elegido e importar.
+3. Clonar el corpus desde GitHub y abrir una única novela en la carpeta _level1_.
+4. Procesar el XML y extraer los párrafos:
+    - Los párrafos están marcados con la etiqueta "p".
+    - para procesar XML en python, se recomienda por su sencillez [Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/#)
+6. Analizar el texto con el *pipeline* básico de SpaCy y extraer un CSV con "palabra | lema | categoria_gramatical | tipo de dependencia sintáctica | palabra de quien depende ".
+7. Extraer los 10 grupos nominales más frecuentes (opcional: mostrar en un gráfico).
+8. Extraer las 10 entidades nombradas más frecuentes (opcional: mostrar en un gráfico).
+9. (Opcional) Crear un gráfico en COLAB donde se muestren la cantidad de nombres, adjetivos, verbos y adverbios.
+10. Entrega: enviar enlace del cuaderno COLAB al profesor mediante la opción "Entrega de prácticas" de la UA-Nube (_UA-Cloud_).
 
-    import spacy
+## Amplicación 1
 
-2. Descargar los módulos SpaCy para español (en COLAB), importar y asignar a una variable para su uso posterior.
-3. Subir el corpus a COLAB, abrir el documento y asignarlo a una variable.
-4. Analizar el corpus entero con SpaCy.
-5. Extraer "palabra | lema | categoria_gramatical" y descargar en un fichero CSV.
-6. Extraer los grupos nominales según el análisis de dependencias y descargar en un fichero .txt
-7. Extraer las entidades nombradas y descargar en un fichero .txt
-8. (Opcional, solo si sobra tiempo en clase) Crear un gráfico en COLAB donde se muestren la cantidad de nombres, adjetivos, verbos y adverbios.
-9. Entrega: enviar enlace del cuaderno COLAB al profesor.
+Realizar análisis de dependencias del corpus con SpaCy y extraer en formato CONLL. Desde SpaCy se puede utilizar STANZA y UD-Pipe.
 
-## Para saber más
+Documentación:
+- [https://spacy.io/universe/project/spacy-conll](https://spacy.io/universe/project/spacy-conll)
+- [https://github.com/BramVanroy/spacy_conll](https://github.com/BramVanroy/spacy_conll)
 
-Curso avanzado de SpaCy (en español):
+## Amplicación 2 - WordNet y NLTK
 
-[https://course.spacy.io/es/](https://course.spacy.io/es/)
+Dado un fragmento del corpus lematizado, extraer el *synset* más frecuente.
+
+Documentación:
+- Acceso a Open Multilingual WordNet mediante NLTK: https://www.nltk.org/howto/wordnet.html
+- (Opcional) Acceso a NLTK desde SpaCy: https://spacy.io/universe/project/spacy-wordnet
+
+Truco: en WordNet, los sentidos de cada palabra están ordenados por frecuencia. Basta con extraer el primero para obtener el más frecuente.
+
+
 

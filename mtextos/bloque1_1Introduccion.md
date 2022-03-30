@@ -3,6 +3,8 @@
 Minería de textos y procesamiento del lenguaje natural.
 ===================================
 
+[Transparencias de clase](https://docs.google.com/presentation/d/1R049gfFDPNW0Y9VqmqgBuSioGRTLQ_YPzlOg7KUzJQc/edit?usp=sharing)
+
 *Minería de textos* es el conjunto de técnicas y herramientas desarrolladas para extraer información de grandes colecciones textuales, tanto información implícita como explícita.
 
 Extracción de información de grandes volúmenes de textos. Sin estas técnicas no sería posible analizar toda esa información por un humano. Extracción de patrones / información recurrente.
@@ -91,7 +93,7 @@ Percepción y representación mental (prototípica y abstracta) de los sonidos (
 
 Los sistemas de PLN de este nivel son los sistemas de reconocimiento del habla o análisis de voz. El primero transforman una cadena de sonido hablado en una representación textual procesable (texto digital codificado en UTF-8, etc.). Problemas: relacionar sonidos y fonemas, sílabas, entonación, discriminación del habla de otros tipos de sonidos (ruido), separación de palabras (o unidades significativas), etc.
 
-Ej. "..."
+Ej. "leasinvergüenza"
 
 El proceso contrario, del texto a habla, son los sistemas de síntesis de voz.
 
@@ -172,9 +174,9 @@ Algunos fenómenos que requieren tener en cuenta la situación pragmática:
 - Referencias de lugar ("aquí"), temporales ("hoy") o personales ("tú"), así como referencias concretas ("este libro").
 - Actos de habla: el propio acto de hablar (locutivo), la intención por la que se habla (afirmas, agradecer, insultar, opinar, etc.), llamado acto "ilocutivo", y las consecuencias del acto en el receptor (perlocutivo).
 
-Ej:
-    USUARIO: "¿Puedo darte un beso?"
-    SIRI: "¿Qué tal si busco “comportamiento inapropiado” en Internet?"
+    Ej:
+        USUARIO: "¿Puedo darte un beso?"
+        SIRI: "¿Qué tal si busco “comportamiento inapropiado” en Internet?"
 
 - Intención del hablante: humor, ironía... Y engaños, mentiras, persuasión, etc.
 - Agentes conversacionales y gestión del diálogo.
@@ -227,7 +229,7 @@ En esta sesión se han presentado los análisis básicos de PLN, necesarios para
 http://nlpprogress.com/
 
 
-## Bibliografía 
+## Bibliografía
 
 Bird, Steven; Klein, Ewan y Loper, Edward (2009) *Natural Language Processing with Python. Analyzing Text with the Natural Language Toolkit* O'Reilly Media. https://www.nltk.org/book_1ed/
 

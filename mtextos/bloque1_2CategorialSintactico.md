@@ -2,20 +2,49 @@
 Análisis categorial y sintáctico
 =================================
 
+```{admonition} Nota
+:class: note
+Para preparar este tema, consulta los capítulos 12, 13 y 14 de Juravsky y Martin (2020) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/).
+```
+
 ## Unidades de comunicación básica. La palabra. *Type*, *token* y lema.
 
-Si bien se suele utilizar como unidad mínima y básica de comunicación, la palabra es un concepto vago que no tiene una definión clara en la lingüística.
+Si bien se suele utilizar como unidad mínima y básica de comunicación, la palabra es un concepto vago que no tiene una definión clara en Lingüística.
 
 En lingüística de corpus se trabaja con dos conceptos relacionados: *type* y *token*.
 
-- *Token* es cada una de las secuencias de caracteres separadas por espacio en blanco.
-- *Type* son todos los *tokens* iguales.
+  - *Type* es la palabra entendida como clase. Una secuencia de caracteres que se diferencia de cualquier otra secuencia.  
+  - *Token* es cada una de las instancias concretas de esas clase que se pueden hallar en un texto [^1].
 
-Así, para medir el tamaño del corpus se indica el número de *tokens* y el cálculo de frecuencias más simple que se puede hacer el la cantidad de *tokens* por cada *type*.
+Por ejemplo, en este verso de [una canción](https://www.youtube.com/watch?v=dv958EeZXHc) del grupo de los 80 _Mecano_
 
-La tokenización, aún así, presenta algunos aspectos que deben ser tenidos en cuenta como signos de puntuación, unidades multipalabra (como formas complejas del verbo Ej. "he comido") o contracciones ("del", "al") y formas aglutinantes ("dáselo").
+> "Una rosa es una rosa es" [^2]
+
+encontramos tres *types*:
+
+- una
+- rosa
+- es
+
+pero seis *tokens*.
+
+El cálculo de frecuencas más simple que se puede hacer es contar la cantidad de *tokens* de cada *type*:
+
+- una (2)
+- rosa (2)
+- es (2)
+
+El tamaño del corpus se suele indicar en número de *tokens*.
+
+La tokenización más simple es separar las palabras por espacios en blanco. Pero hay algunos problemas que deben ser tenidos en cuenta como:
+
+- signos de puntuación,
+- unidades multipalabra (como formas complejas del verbo Ej. "he comido") o
+- contracciones ("del", "al") y en general formas aglutinantes ("dáselo").
 
 *Type* y *token* se refieren siempre a formas flexionadas, es decir, a formas con variaciones morfológicas. Así, "catamos" y "cantaré" son *tokens* distintos; al igual que "casa" y "casas".
+
+### Lematización y *stemming*
 
 Para agrupar todos los *tokens* relacionados con la misma palabra (es decir, la forma sin flexionar o la unidad léxica que podemos encontrar, por ejemplo, en los diccionarios) se realiza un proceso de _lematización_. La lematización es asignar a cada palabra su forma no marcada: infinitivo para verbos, forma masculino singular para nombres y verbos (es decir, la forma que aparece en el diccionario). El lema es una manera de nombrar la palabra en toda su diversidad flexiva.
 
@@ -23,7 +52,7 @@ La lematización es un fenómenos complejo porque es necesario analizar morfoló
 
 Un proceso similar pero más sencillo es el *stemming*: reducir cada *token* a su raíz o lexema (la parte invarible que, en principio, asume el significado general de la palabra).
 
-> Reflexión: para minería de textos, ¿qué es mejor, dejar el corpus con los *tokens*, lematizarlo o trabajar solo con las raíces léxicas (*stemm*)? 
+> *Reflexión:* para minería de textos, ¿qué es mejor, dejar el corpus con los *tokens*, lematizarlo o trabajar solo con las raíces léxicas (*stemm*)? 
 
 ## Análisis morfológico y categorial.
 
@@ -33,14 +62,14 @@ El objetivo general de la anotación categorial (*PoS Tagger*): asignar a cada p
 - categoría gramatical,
 - rasgos morfológicos.
 
-El mayor problema viene en la selección de la categoría gramatical por los problemas de ambigüedad categorial que vimos en la sesión anterior.
+El mayor problema viene en la selección de la categoría gramatical por los problemas de *ambigüedad categorial* que vimos en la sesión anterior.
 
 
 ### Fundamentos lingüísticos (a modo de recordatorio).
 
 Categorías gramaticales: agrupaciones de palabras ("paradigmas") según sus rasgos distributivos, morfológicos y (en menor medida) semánticos.
 
-ESP: artículo, sustantivo, adjetivo, pronombre, verbo, adverbio, preposición, conjunción e interjección.
+ESP: determinantes (artículo, demostrativos, etc.), sustantivos, adjetivos, pronombres, verbos, adverbios, preposiciones, conjunciones e interjecciones.
 
 Por su función en el texto: categorías con significado léxico vs. "significado" gramatical (solo aportan información gramatical).
 
@@ -52,24 +81,21 @@ Categorías abiertas vs cerradas.
 
 Base para análisis sintáctico y semántico.
 
-Algunas aplicaciones de MdTx son dependientes de la categoría gramatical. Ej.: 
+Un pre-proceso muy común en Minería de Textos es eliminar las "stop-words", es decir, las palabras de categorías gramaticales sin significado semántico (artículos, preposiciones, conjunciones, etc.). En ocasiones además las palabras se lematizan. En ambos casos es necesario un análisis categorial (aunque sea un simple filtro de "stop-words"). Algunas aplicaciones dependen de las categorías gramaticales, como: 
 
-- extracción de entidades --> nombres propios
-- extracción de eventos --> verbos y nombres
-- extracción de sentimientos --> adjetivos
+- extracción de entidades --> nombres propios;
+- extracción de eventos --> verbos y nombres;
+- extracción de sentimientos --> adjetivos;
+- detección de autoría --> categorías cerradas;
 - etc.
 
 ### Representación de la información morfológica y categorial
 
-La información categorial y morfológica se representa explícitamente mediante juegos de etiquetas.
+La información categorial y morfológica se representa explícitamente mediante etiquetas.
 
 Actualmente hay diversas propuestas. Es necesario saber con qué juego de etiquetas representa la información el sistema de PoS que estemos utilizando par poder interpretar la información correctamente.
 
 Algunas propuestas:
-
-- BROWN corpus:
-
-[http://www.helsinki.fi/varieng/CoRD/corpora/BROWN/tags.html](http://www.helsinki.fi/varieng/CoRD/corpora/BROWN/tags.html)
 
 - Penn Treebank tag set:
 
@@ -143,9 +169,10 @@ Las reglas son condicionales al contexto (si la palabra anterior es X, la siguie
 Ejemplo:
      "Un verbo no va precedido de artículo". 
 
-Sistema ENGCG (1990)
+Sistema ENGCG de 1990 (Karlsson et al 1995)
 
-#### Modelos basados en aprendizaje automático.
+
+### Modelos basados en aprendizaje automático.
 
 Sistemas supervisados. Aprendizaje a partir de un corpsu anotado a mano y validado por lingüistas.
 
@@ -251,12 +278,11 @@ Modelos de aprendizaje automático.
 Corpus de aprendizaje y evaluación: *treebanks*
 
 - Penn Treebank:
-
-[https://catalog.ldc.upenn.edu/LDC99T42](https://catalog.ldc.upenn.edu/LDC99T42)
-[https://www.kaggle.com/nltkdata/penn-tree-bank](https://www.kaggle.com/nltkdata/penn-tree-bank)
+    + [https://catalog.ldc.upenn.edu/LDC99T42](https://catalog.ldc.upenn.edu/LDC99T42)
+    + [https://www.kaggle.com/nltkdata/penn-tree-bank](https://www.kaggle.com/nltkdata/penn-tree-bank)
 
 - Ancora (español, catalán):
-[http://clic.ub.edu/corpus/en/ancora-descarregues](http://clic.ub.edu/corpus/en/ancora-descarregues)
+    + [http://clic.ub.edu/corpus/en/ancora-descarregues](http://clic.ub.edu/corpus/en/ancora-descarregues)
 
 Y muchos otros
 
@@ -264,12 +290,14 @@ Y muchos otros
 
 En ocasiones el análisis sintáctico completo (*full parsing*) es complejo, consume mucho recurso y no suele obtener buenos resultados.
 
-Lo normal es realizar _análisis sintáctico parcial_ o *chunkers*: extraer agrupaciones sintáticas (*chunks*) sin llegar a derivar el árbol sintáctico completo.
+Lo normal es realizar _análisis sintáctico parcial_ o *chunkers*: extraer agrupaciones sintáticas (*chunks*) sin llegar a derivar el árbol sintáctico completo (Abney 1991).
 
 ### Estrategias
 
 Descendente:
 Recursive Descendent:
+
+(El siguiente código es Python y requiere tener instalado [NLTK](https://www.nltk.org/))
 
     import nltk
     nltk.app.rdparser()
@@ -280,13 +308,34 @@ Shift Reduce:
     import nltk
     nltk.app.srparser()
 
+
+### Formato CONLL
+
+Formato de salida estándar en análisis de dependencias. Además de la información morfológica, por cada palabra indica de quién depende y el tipo de dependencia.
+
+        Salida CoNLL-U
+        # sent_id = 1
+        # text = Los hombres que fuman puro tienen cara de canguro .
+        1   Los el  DET DET Definite=Def|Gender=Masc|Number=Plur|PronType=Art   2   det _   _
+        2   hombres hombre  NOUN    NOUN    Gender=Masc|Number=Plur 6   nsubj   _   _
+        3   que que PRON    PRON    PronType=Int,Rel    4   nsubj   _   _
+        4   fuman   fumar   VERB    VERB    Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin   2   acl _   _
+        5   puro    puro    ADJ ADJ Gender=Masc|Number=Sing 4   obj _   _
+        6   tienen  tener   VERB    VERB    Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin   0   root    _   _
+        7   cara    cara    NOUN    NOUN    Gender=Fem|Number=Sing  6   obj _   _
+        8   de  de  ADP ADP _   9   case    _   _
+        9   canguro canguro NOUN    NOUN    Gender=Masc|Number=Sing 7   nmod    _   _
+        10  .   .   PUNCT   PUNCT   PunctType=Peri  6   punct   _   _
+
+
+
 ### Situación actual
 
 *Transition-based dependency parsing* (Nivre 2014). Algoritmo shift-reduce.
 
 *Neural Network Dependency Parser*: [https://nlp.stanford.edu/software/nndep.shtml](https://nlp.stanford.edu/software/nndep.shtml)
 
-Modelo de dependencias universal: *Universal Dependencies*:
+Modelo de dependencias universal: [*Universal Dependencies*](https://universaldependencies.org/):
 
 > The Universal Dependencies project (Nivre et al., 2016) provides an inventory of dependency relations that arelinguistically motivated, computationally useful, and cross-linguistically applicable. (Juravsky y Martin 2020, cap. 14)
 
@@ -296,7 +345,21 @@ Representación vectorial (*embeddings*).
 
 [http://nlpprogress.com/english/dependency_parsing.html](http://nlpprogress.com/english/constituency_parsing.html)
 
+### Herramientas
+
+- SpaCy: [https://spacy.io/](https://spacy.io/)
+- STANZA: [https://stanfordnlp.github.io/stanza/](https://stanfordnlp.github.io/stanza/)
+- Freeling: [https://nlp.lsi.upc.edu/freeling/node/1](https://nlp.lsi.upc.edu/freeling/node/1)
+- UD-Pipe: [https://ufal.mff.cuni.cz/udpipe](https://ufal.mff.cuni.cz/udpipe)
+
 ## Bibliografía
 
-Juravsky y Martin (2020) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/) 
-(Caps 12-14)
+- Abney S.P. (1991) "Parsing By Chunks". In: Berwick R.C., Abney S.P., Tenny C. (eds) Principle-Based Parsing. Studies in Linguistics and Philosophy, vol 44. Springer, Dordrecht. https://doi.org/10.1007/978-94-011-3474-3_10
+- Juravsky y Martin (2020) *Speech and Language Processing*. [https://web.stanford.edu/~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/)
+- Karlsson, F., A. Voutilainen, J. Heikkilä, and A. Anttila (eds.). 1995. _Constraint Grammar. A language-independent system for parsing unrestricted text_. Berlin and New-York: Mouton de Gruyter
+
+---
+
+[^1]: "Token" se asimila en este caso a "occurrence". Cfr. [https://plato.stanford.edu/entries/types-tokens/#Occ](https://plato.stanford.edu/entries/types-tokens/#Occ)
+
+[^2]: Este verso es una adaptación del verso de Gertrude Stein "A rose is a rose is a rose". Ver [https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa](https://es.wikipedia.org/wiki/Rosa_es_una_rosa_es_una_rosa_es_una_rosa).
