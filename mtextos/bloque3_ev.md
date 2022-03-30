@@ -1,5 +1,5 @@
 
-Ev. Evaluación del bloque 3
+Ev. Evaluación de prácticas
 ====================================
 
 Para la evaluación de este bloque el estudiante deberá realizar las siguentes actividades:
