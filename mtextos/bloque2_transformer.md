@@ -11,7 +11,7 @@ Como primera aproximación, puedes usar la guía ilustrada de Jay Alammar sobre 
 
 [transformer]: http://jalammar.github.io/illustrated-transformer/
 
-Los contenidos nucleares del tema son los incluidos en las secciones 11.1 ("Bidirectional transformer encoders") y 9.7 ("Self-attention networks: transformers") de la tercera edición del libro "[Speech and language processing][jurafskybook]". Usa esos contenidos junto con los apuntes de clase en tu aprendizaje. 
+Los contenidos nucleares del tema son los incluidos en las secciones 11.1 ("Bidirectional transformer encoders") y 9.7 ("Self-attention networks: transformers") de la tercera edición del libro "[Speech and language processing][jurafskybook]". Además, la arquitectura completa codificador-descodificador del transformer se presenta en el apartado 10.6. La aplicación del transformer a algunas tareas de procesamiento del lenguaje natural se ve en 9.8 y 9.9. Los modelos preentrenados se estudian en los apartados 11.2 y 11.3. La estrategia de búsqueda *beam search* y la tokenización en subpalabras se exploran en 10.5 y 2.4.3, respectivamente. Los elementos más básicos, comunes a cualquier tipo de arquitectura neuronal, se estudian en el capítulo 7. Aunque las hemos estudiado más por encima, el capítulo 9 se centra en las arquitecturas recurrentes. Usa todos esos contenidos junto con los apuntes de clase en tu aprendizaje. 
 
 [jurafskybook]: https://web.stanford.edu/~jurafsky/slp3/
 
