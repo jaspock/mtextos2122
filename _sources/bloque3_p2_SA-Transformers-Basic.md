@@ -23,6 +23,10 @@ API Transformers Basic:
 
 ### Ejercicios
 
+Dado que utilizar un pipeline ya configurado tiene restricciones en el número de clases (y cómo se llaman estas clases) de la ultima capa del modelo neuronal, para poder utilizarlo en otros corpus hay dos posibles alternativas: 
+- adaptar el corpus a las necesidades del pipeline
+- buscar otro pipeline ya configurado que se adapte al problema
+
 #### Ejercicio 1
 
 Basándose en el ejemplo anterior haga uso del siguiente dataset y diseñe su propio sistema para el análisis de sentimientos. Se disponibilizan unas funciones python para la limpieza y carga de dataset.
