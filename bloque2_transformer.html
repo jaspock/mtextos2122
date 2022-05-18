@@ -52,7 +52,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Práctica. Lectura y documentación del código de un extractor de entidades" href="bloque2_practica.html" />
+    <link rel="next" title="Otras técnicas para la minería de textos" href="bloque2_otros.html" />
     <link rel="prev" title="Representaciones de palabras y oraciones" href="bloque2_embeddings.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -183,6 +183,11 @@
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      La arquitectura transformer
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bloque2_otros.html">
+     Otras técnicas para la minería de textos
     </a>
    </li>
    <li class="toctree-l2">
@@ -446,8 +451,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#para-saber-mas">
-   Para saber más
+  <a class="reference internal nav-link" href="#codigo-en-pytorch-del-transformer">
+   Código en Pytorch del transformer
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -502,8 +507,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#para-saber-mas">
-   Para saber más
+  <a class="reference internal nav-link" href="#codigo-en-pytorch-del-transformer">
+   Código en Pytorch del transformer
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -597,9 +602,9 @@ similitud(&quot;narancoque&quot;,&quot;naranja&quot;) → 30
 <p>Mediante la herramienta <a class="reference external" href="https://huggingface.co/exbert/?model=bart-large&amp;modelKind=bidirectional&amp;sentence=The%20moon%20is%20shinning%20brightly%20tonight.">exBERT</a> vamos a explorar visualmente las representaciones intermedias obtenidas en el codificador de un transformer.</p>
 <p>En la <a class="reference external" href="https://www.youtube.com/watch?v=e31oyfo_thY">herramienta</a> puedes seleccionar el modelo a utilizar (en estos momentos no hemos estudiado las diferencias entre ellas, por lo que con <em>BART</em> es suficiente), la frase de entrada, el grado de la atención, las capas y los cabezales a mostrar. La capa superior (la más alejada de la entrada) está a la izquierda. Para seleccionar o deseleccionar un cabezal puedes hacer clic en las columnas. Puedes seleccionar un token haciendo clic sobre él y ocultarlo con doble clic. Al colocarte sobre una palabra puedes ver la predicción que haría el modelo del token que corresponde al embedding obtenido por la red en esa posición, capa y cabezal; observa que si ocultas <em>moon</em> a la derecha, por ejemplo, a la izquierda el sistema tiende a predecir <em>sun</em> en esa posición.</p>
 </div>
-<div class="section" id="para-saber-mas">
-<h2>Para saber más<a class="headerlink" href="#para-saber-mas" title="Permalink to this headline">¶</a></h2>
-<p>“<a class="reference external" href="https://nlp.seas.harvard.edu/2018/04/03/attention.html">The annotated transformer</a>” es un documento que va mostrando paso a paso el artículo científico original del transformer y su <em>traslación</em> a código en Python. Este material es opcional y de una complejidad superior a la requerida en la asignatura, pero es la mejor manera de entender la arquitectura a bajo nivel.</p>
+<div class="section" id="codigo-en-pytorch-del-transformer">
+<h2>Código en Pytorch del transformer<a class="headerlink" href="#codigo-en-pytorch-del-transformer" title="Permalink to this headline">¶</a></h2>
+<p>El documento “<a class="reference external" href="https://github.com/harvardnlp/annotated-transformer/">The Annotated Transformer</a>” nos ayuda a entender mejor el modelo al ir mostrando paso a paso el código de Pytorch que lo implementa. En clase nos centraremos en la parte 1 (“Model architecture”), pero puedes profundizar un poco más llegando hasta la parte 2 (“Model training”), que incluye un ejemplo completo de entrenamiento para una tarea sencilla. En el ficjero <code class="docutils literal notranslate"><span class="pre">README</span></code> del repositorio de Github puedes encontrar un enlace a un <em>notebook</em> en Google Colab.</p>
 </div>
 <div class="section" id="referencias">
 <h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">¶</a></h2>
@@ -646,10 +651,10 @@ similitud(&quot;narancoque&quot;,&quot;naranja&quot;) → 30
             <p class="prev-next-title">Representaciones de palabras y oraciones</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="bloque2_practica.html" title="next page">
+    <a class='right-next' id="next-link" href="bloque2_otros.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Práctica. Lectura y documentación del código de un extractor de entidades</p>
+        <p class="prev-next-title">Otras técnicas para la minería de textos</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -50,6 +50,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Práctica. Lectura y documentación del código de un extractor de entidades" href="bloque2_practica.html" />
+    <link rel="prev" title="La arquitectura transformer" href="bloque2_transformer.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -109,7 +111,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="bloque1.html">
    Introducción a la minería de textos
@@ -156,16 +158,16 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="bloque2.html">
    Técnicas para la minería de textos
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="bloque2_historia.html">
      Revisión histórica
@@ -179,6 +181,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="bloque2_transformer.html">
      La arquitectura transformer
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Otras técnicas para la minería de textos
     </a>
    </li>
    <li class="toctree-l2">
@@ -415,21 +422,6 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modelos-multilingues">
-   Modelos multilingües
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#visualizacion">
-   Visualización
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#avances-recientes">
-   Avances recientes
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#etica">
    Ética
   </a>
@@ -459,21 +451,6 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modelos-multilingues">
-   Modelos multilingües
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#visualizacion">
-   Visualización
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#avances-recientes">
-   Avances recientes
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#etica">
    Ética
   </a>
@@ -495,34 +472,13 @@ title="Print to PDF"
                 
   <div class="section" id="otras-tecnicas-para-la-mineria-de-textos">
 <h1>Otras técnicas para la minería de textos<a class="headerlink" href="#otras-tecnicas-para-la-mineria-de-textos" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="modelos-multilingues">
-<h2>Modelos multilingües<a class="headerlink" href="#modelos-multilingues" title="Permalink to this headline">¶</a></h2>
-<p>Para estudiar los modelos que explotan el entrenamiento y la transferencia multilingües seguiremos las diapositivas “<a class="reference external" href="http://demo.clab.cs.cmu.edu/11737fa20/slides/multiling-10-multilingual_training.pdf">Multilingual</a> training and cross-lingual transfer” preparadas por Xinyi Wang para el curso CMU <a class="reference external" href="http://demo.clab.cs.cmu.edu/11737fa20/">CS11-737</a>, “Multilingual Natural Language Processing”, de la Carnegie Mellon University.</p>
-</div>
-<div class="section" id="visualizacion">
-<h2>Visualización<a class="headerlink" href="#visualizacion" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>“Interfaces for <a class="reference external" href="https://jalammar.github.io/explaining-transformers/?s=03">explaining</a> transformer language models” de Jay Alammar.</p></li>
-<li><p>La herramienta <a class="reference external" href="https://pair-code.github.io/lit/demos/">LIT</a> (Language Interpretability Tool) permite estudiar en línea las <a class="reference external" href="https://pair-code.github.io/lit/demos/lm.html">predicciones de BERT</a> para las palabras enmascaradas.</p></li>
-</ul>
-</div>
-<div class="section" id="avances-recientes">
-<h2>Avances recientes<a class="headerlink" href="#avances-recientes" title="Permalink to this headline">¶</a></h2>
-<p>El investigador Sebastian Ruder suele escribir en su <a class="reference external" href="https://ruder.io/">página web</a> un resumen de los avances anuales más destacados en el área del procesamiento del lenguaje natural.</p>
-<ul class="simple">
-<li><p>“ML and NLP research highlights of <a class="reference external" href="https://ruder.io/research-highlights-2020/">2020</a>”</p></li>
-<li><p>“10 ML &amp; NLP research highlights of <a class="reference external" href="https://ruder.io/research-highlights-2019/">2019</a>”</p></li>
-<li><p>“10 exciting ideas of <a class="reference external" href="https://ruder.io/10-exciting-ideas-of-2018-in-nlp/">2018</a> in NLP”</p></li>
-<li><p>“Recent advances in language model <a class="reference external" href="https://ruder.io/recent-advances-lm-fine-tuning/">fine-tuning</a>”</p></li>
-</ul>
-</div>
 <div class="section" id="etica">
 <h2>Ética<a class="headerlink" href="#etica" title="Permalink to this headline">¶</a></h2>
 <p>Artículo “On the dangers of stochastic <a class="reference external" href="http://faculty.washington.edu/ebender/papers/Stochastic_Parrots.pdf">parrots</a>: can language models be too big?” de Emily Bender et al.</p>
 </div>
 <div class="section" id="el-raspado-web">
 <h2>El raspado web<a class="headerlink" href="#el-raspado-web" title="Permalink to this headline">¶</a></h2>
-<p>Introducción al <a class="reference external" href="https://www.codementor.io/&#64;info658/introduction-to-web-scraping-with-python-1g1eb3pw9y">raspado web</a> con Python por Robin Andrews.</p>
+<p>Introducción al <a class="reference external" href="https://docs.scrapy.org/en/latest/intro/tutorial.html">raspado web</a> con la herramienta Scrapy de Python.</p>
 </div>
 </div>
 
@@ -553,6 +509,20 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="bloque2_transformer.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">La arquitectura transformer</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="bloque2_practica.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Práctica. Lectura y documentación del código de un extractor de entidades</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

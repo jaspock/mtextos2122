@@ -110,11 +110,11 @@ En la [herramienta] puedes seleccionar el modelo a utilizar (en estos momentos n
 [herramienta]: https://www.youtube.com/watch?v=e31oyfo_thY
 
 
-## Para saber más
+## Código en Pytorch del transformer
 
-"[The annotated transformer][annotated]" es un documento que va mostrando paso a paso el artículo científico original del transformer y su *traslación* a código en Python. Este material es opcional y de una complejidad superior a la requerida en la asignatura, pero es la mejor manera de entender la arquitectura a bajo nivel.
+El documento "[The Annotated Transformer]" nos ayuda a entender mejor el modelo al ir mostrando paso a paso el código de Pytorch que lo implementa. En clase nos centraremos en la parte 1 ("Model architecture"), pero puedes profundizar un poco más llegando hasta la parte 2 ("Model training"), que incluye un ejemplo completo de entrenamiento para una tarea sencilla. En el ficjero `README` del repositorio de Github puedes encontrar un enlace a un *notebook* en Google Colab.
 
-[annotated]: https://nlp.seas.harvard.edu/2018/04/03/attention.html
+[The Annotated Transformer]: https://github.com/harvardnlp/annotated-transformer/
 
 
 ## Referencias
