@@ -16,7 +16,7 @@
 #    - file: bloque2_recurrent
     - file: bloque2_transformer
 #    - file: bloque2_pretrained
-#    - file: bloque2_otros
+    - file: bloque2_otros
     - file: bloque2_practica
 - file: bloque3
   sections:
